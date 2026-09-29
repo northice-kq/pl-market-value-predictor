@@ -1,0 +1,35 @@
+# Environment
+.venv/
+venv/
+env/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.ipynb_checkpoints/
+
+# Derived data (regenerable)
+data/combined/
+data/final/
+data/id_data/
+data/merged_data/
+data/ml/
+data/models/
+data/transfer_value/
+
+# Binary models
+*.joblib
+*.pkl
+*.pickle
+
+# IDE & OS
+.idea/
+.vscode/
+*.swp
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs & temp
+*.log
+*.tmp

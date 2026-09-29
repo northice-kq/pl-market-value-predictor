@@ -1,0 +1,552 @@
+Player,Club,Age,Apps,Mins,Assists,KeyP,AvgP,PS%,Crosses,LongB,ThrB,Rating
+Ben White,Arsenal,28,9(3),704,1,0.7,29.5,81.6,0.3,0.8,,6.72
+Bukayo Saka,Arsenal,25,25(6),2227,5,2,24.9,76.7,1.3,0.5,0.1,7.25
+Christian Nørgaard,Arsenal,32,1(6),102,,,8.7,83.6,,,,6.17
+Cristhian Mosquera,Arsenal,22,9(11),990,,0.3,31.7,91.3,0.1,0.6,0.1,6.58
+David Raya,Arsenal,30,37,3330,,0.1,29.5,64.8,,5.3,,6.65
+Declan Rice,Arsenal,27,35(1),3099,5,1.8,59.3,87.3,1.3,2.4,0.1,7.26
+Eberechi Eze,Arsenal,28,21(11),1819,2,0.5,20.2,85.1,0.1,0.5,0.2,6.77
+Ethan Nwaneri,Arsenal,19,0(6),166,,0.2,14.5,90.8,,0.8,,6.24
+Gabriel Jesus,Arsenal,29,3(11),421,,0.2,7.7,76.9,,,,6.44
+Gabriel Magalhães,Arsenal,28,30(2),2751,4,0.2,54.2,88.2,,2.4,0.1,7.22
+Gabriel Martinelli,Arsenal,25,11(19),1075,4,0.4,8.7,72.4,0.3,0.1,,6.39
+Jurriën Timber,Arsenal,25,28(2),2457,5,0.9,36.2,85.3,0.2,0.7,0.1,6.96
+Kai Havertz,Arsenal,27,7(5),584,3,0.9,13.8,74.1,,0.1,0.1,6.65
+Kepa Arrizabalaga,Arsenal,31,1,90,,,20,75,,3,,6.84
+Leandro Trossard,Arsenal,31,21(10),2010,6,1.2,24.4,77,0.5,1,0.2,6.88
+Martin Ødegaard,Arsenal,27,16(8),1371,6,1.6,34.5,84.7,0.3,1.6,0.3,6.7
+Martín Zubimendi,Arsenal,27,34(4),3003,1,0.5,50.7,87.3,0.1,1.4,0.1,6.87
+Max Dowman,Arsenal,16,1(5),153,,0.7,8.7,88.5,0.2,0.2,0.2,6.55
+Mikel Merino,Arsenal,30,10(12),1029,3,0.5,16.8,75.9,,0.4,0.1,6.73
+Myles Lewis-Skelly,Arsenal,19,5(15),699,,0.2,19.1,91.6,,0.5,,6.27
+Noni Madueke,Arsenal,24,16(10),1221,1,0.8,15.8,76.2,0.6,0.4,,6.64
+Piero Hincapié,Arsenal,24,20(5),1792,2,0.5,33.5,88.9,0.2,0.9,,6.83
+Riccardo Calafiori,Arsenal,24,22(4),1712,2,0.3,29.1,85.6,0.1,0.8,,6.81
+Viktor Gyökeres,Arsenal,28,26(10),2233,1,0.6,8.9,62.4,0.1,,,6.64
+William Saliba,Arsenal,25,30(1),2616,,0.3,67.9,92.9,0.1,1.9,0.1,6.91
+Alysson,Aston Villa,20,0(3),47,,,5.7,82.4,,,,6.08
+Amadou Onana,Aston Villa,25,21(4),1766,,0.3,34,87.4,,1.7,,6.78
+Andrés García,Aston Villa,23,1(5),84,,,6.2,100,,,,6.04
+Boubacar Kamara,Aston Villa,26,17(1),1418,3,0.8,45.4,88.3,,1.7,0.1,6.96
+Bradley Burrowes,Aston Villa,18,0(1),16,,,5,60,,,,5.83
+Donyell Malen,Aston Villa,27,5(16),646,1,0.3,4.5,77.7,0.1,,,6.35
+Douglas Luiz,Aston Villa,28,7(6),605,,1.1,33,88.8,0.8,1.5,,6.59
+Emi Buendía,Aston Villa,29,21(15),1762,2,0.8,18.3,81.5,,0.7,0.1,6.58
+Emiliano Martínez,Aston Villa,34,32,2836,1,0.1,37.8,73.7,,5.5,,6.78
+Evann Guessand,Aston Villa,25,6(7),590,1,0.3,7.2,81.7,,0.1,,6.4
+Ezri Konsa,Aston Villa,28,34,3036,,0.1,61.7,95.5,,1.8,,6.58
+George Hemmings,Aston Villa,19,0(2),25,,,8.5,100,,0.5,,6.07
+Harvey Elliott,Aston Villa,23,1(3),110,,0.3,18.5,87.8,0.3,0.3,,6.19
+Ian Maatsen,Aston Villa,24,17(13),1600,1,0.9,23.8,86,0.4,0.8,,6.53
+Jadon Sancho,Aston Villa,26,9(14),874,2,0.9,16.4,83.6,0.1,0.1,,6.27
+Jamaldeen Jimoh,Aston Villa,19,0(1),8,,,7,85.7,,,,6.12
+John McGinn,Aston Villa,31,28(2),2158,4,1.4,25.1,82.4,0.7,1.4,,6.74
+Lamare Bogarde,Aston Villa,22,11(17),1050,,0.1,18,89.7,,0.3,,6.14
+Leon Bailey,Aston Villa,29,3(10),454,1,0.9,10.7,77,0.4,0.2,,6.28
+Lucas Digne,Aston Villa,33,21(10),1856,6,0.8,23.6,80.8,1.1,0.4,,6.59
+Marco Bizot,Aston Villa,35,6(1),585,,,34.4,76.3,,4.3,,6.38
+Matty Cash,Aston Villa,29,34(1),3023,3,0.9,39.8,85.5,0.7,1.6,,6.73
+Morgan Rogers,Aston Villa,24,37,3285,6,1.3,28.9,74.6,0.1,1,0.1,6.85
+Ollie Watkins,Aston Villa,30,33(4),2853,3,0.6,12.9,72.7,0.1,0.1,,6.85
+Pau Torres,Aston Villa,29,18(3),1676,,,55.6,89,,2.5,,6.5
+Ross Barkley,Aston Villa,32,7(14),855,1,0.5,19.4,87.7,,0.7,0.1,6.51
+Tammy Abraham,Aston Villa,28,2(10),282,,0.3,3.7,56.8,,,,6.26
+Tyrone Mings,Aston Villa,33,15(2),1324,,0.3,55.1,90,0.1,2.2,,6.53
+Victor Lindelöf,Aston Villa,32,11(6),945,1,0.1,37.6,94.2,,0.8,,6.27
+Youri Tielemans,Aston Villa,29,21(4),1864,4,1.3,45.2,84.9,0.6,2.4,0.2,6.84
+Adam Smith,Bournemouth,35,14(8),1081,2,0.2,16.5,78,,0.5,,6.34
+Adrien Truffert,Bournemouth,24,38,3380,5,0.8,41.1,83.5,0.9,1,,6.99
+Álex Jiménez,Bournemouth,21,26(5),2328,,0.5,28,80.2,0.4,1.3,,6.71
+Alex Scott,Bournemouth,23,34(3),2863,1,0.7,37.6,84.9,0.4,1.4,0.1,6.89
+Alex Tóth,Bournemouth,20,2(7),137,,0.6,7.2,87.7,,0.1,,6.09
+Amine Adli,Bournemouth,26,10(21),1084,1,0.5,13.3,77.2,0.1,0.1,,6.45
+Antoine Semenyo,Bournemouth,26,20,1800,3,1.3,25.8,75.6,0.2,1.1,,7.13
+Bafodé Diakité,Bournemouth,25,15(3),1277,,0.2,41.6,88,,1.9,,6.49
+Ben Gannon-Doak,Bournemouth,20,0(8),105,1,0.1,6,77.1,,,,6.25
+Ben Winterburn,Bournemouth,22,0(1),6,,,1,,,,,5.78
+David Brooks,Bournemouth,29,13(18),1201,3,0.8,14.4,77.1,0.4,0.4,0.1,6.37
+Đorđe Petrović,Bournemouth,26,38,3420,,,23.7,64.4,,3.8,,6.64
+Enes Ünal,Bournemouth,29,0(23),214,,,2.4,67.9,,,,6.1
+Evanilson,Bournemouth,26,32(4),2763,1,0.9,12.9,76.6,,0.1,,6.63
+Hamed Junior Traorè,Bournemouth,26,0(1),16,1,1,2,100,,,,6.24
+James Hill,Bournemouth,24,22(7),2105,3,0.4,35.8,77.7,0.1,1.8,0.1,6.99
+Julio Soler,Bournemouth,21,0(3),34,,,7.7,87,,,,5.96
+Eli Junior Kroupi,Bournemouth,20,21(12),1684,,0.7,14.2,76,,0.5,0.1,6.65
+Justin Kluivert,Bournemouth,27,10(10),953,,1.1,17.3,81.2,0.4,0.7,0.1,6.38
+Lewis Cook,Bournemouth,29,8(10),872,1,0.6,27.7,86.1,0.6,1.4,,6.46
+Marcos Senesi,Bournemouth,29,37,3290,5,0.6,62.7,77.7,0.2,4.9,0.3,7.09
+Marcus Tavernier,Bournemouth,27,31(3),2745,4,1.6,33.2,83.6,0.6,0.9,0.1,6.93
+Rayan,Bournemouth,20,13(2),1120,2,0.9,21.2,78.3,0.3,0.7,0.1,6.98
+Ryan Christie,Bournemouth,31,9(17),986,,0.4,21,78.2,0.1,1,,6.47
+Tyler Adams,Bournemouth,27,21(4),1779,2,0.3,40.4,87.1,0.1,1.3,,6.69
+Veljko Milosavljević,Bournemouth,19,4(3),367,,0.1,27.1,84.2,,1.1,,6.41
+Aaron Hickey,Brentford,24,8(13),687,,,13.6,83.6,,0.5,,6.22
+Antoni Milambo,Brentford,21,1,46,,,11,72.7,,,,6.12
+Caoimhín Kelleher,Brentford,27,37,3330,,0.1,35,65.3,,6.7,,6.69
+Dango Ouattara,Brentford,24,25(7),2282,3,0.8,15.2,63.1,0.6,0.6,0.1,6.82
+Ethan Pinnock,Brentford,33,4,321,,,33.3,82.7,,2.3,,6.81
+Fabio Carvalho,Brentford,24,1(5),100,,,4.2,80,0.2,0.3,,6.07
+Frank Onyeka,Brentford,28,0(6),88,1,0.2,6,77.8,,0.2,,6.22
+Hákon Valdimarsson,Brentford,24,1,90,,,41,73.2,,12,,5.67
+Igor Thiago,Brentford,25,37(1),3288,1,0.6,16.6,69.2,0.2,0.3,0.1,7.09
+Jordan Henderson,Brentford,36,22(10),1924,3,0.6,36.2,77.9,0.5,2.2,0.1,6.43
+Josh Dasilva,Brentford,27,0(2),2,,0.5,2.5,80,,,,6.03
+Kaye Furo,Brentford,19,0(1),1,,,,,,,,6
+Keane Lewis-Potter,Brentford,25,22(14),1972,3,0.5,15.8,77.6,0.6,0.7,,6.47
+Kevin Schade,Brentford,24,32(3),2758,3,0.8,15.1,67.7,0.1,0.2,,6.78
+Kristoffer Ajer,Brentford,28,20(7),1810,1,0.1,26.1,80,,0.9,,6.55
+Mathias Jensen,Brentford,30,26(10),2252,1,0.9,31.2,80.8,1.1,2.7,0.2,6.58
+Michael Kayode,Brentford,22,37,3264,1,0.9,30.8,85,0.4,1,,6.84
+Mikkel Damsgaard,Brentford,26,24(9),2059,4,1.3,28.8,76.3,0.8,1.1,0.2,6.76
+Myles Peart-Harris,Brentford,23,0(1),1,,,,,,,,6
+Nathan Collins,Brentford,25,32(3),2973,2,0.3,50.1,83.1,,2.5,,6.79
+Reiss Nelson,Brentford,26,0(10),120,1,0.2,7.4,91.9,,0.2,,6.22
+Rico Henry,Brentford,29,14(11),1330,1,0.2,19.2,76.9,0.1,0.9,,6.28
+Romelle Donovan,Brentford,19,0(4),38,,0.3,4,56.3,,0.3,,6.23
+Sepp van den Berg,Brentford,24,30(2),2761,2,0.2,44.4,88.5,,1.7,,6.84
+Vitaly Janelt,Brentford,28,15(10),1439,4,0.8,32.4,87.3,0.8,1.7,,6.72
+Yehor Yarmoliuk,Brentford,22,30(7),2668,2,0.4,36.4,84.3,0.2,1.8,,6.54
+Bart Verbruggen,Brighton,24,38,3420,,,40.8,76,,5.2,,6.58
+Brajan Gruda,Brighton,22,8(10),716,1,0.9,13.8,78.2,0.2,0.4,0.1,6.4
+Carlos Baleba,Brighton,22,23(8),1667,,0.3,24.1,86.1,,1.1,,6.38
+Charalampos Kostoulas,Brighton,19,2(19),354,1,0.5,6,74.8,,,,6.35
+Danny Welbeck,Brighton,35,26(11),2267,1,0.5,13.1,79.4,,0.1,0.1,6.6
+Diego Coppola,Brighton,22,2(3),194,,,22.8,88.6,,0.4,,6.33
+Diego Gómez,Brighton,23,26(6),2139,1,0.7,23.5,78,0.2,0.5,,6.73
+Ferdi Kadioglu,Brighton,26,34(3),3134,,0.6,36.9,85.6,0.6,1.2,,6.66
+Georginio Rutter,Brighton,24,20(12),1793,3,0.8,13.6,69.5,0.1,0.5,0.2,6.55
+Harry Howell,Brighton,18,1(2),93,,,11.3,85.3,,0.7,,6.1
+Jack Hinshelwood,Brighton,21,20(7),1752,3,0.6,23.4,82.6,,0.3,0.1,6.44
+James Milner,Brighton,40,7(13),780,1,0.4,24.4,86.9,0.3,1,0.1,6.27
+Jan Paul van Hecke,Brighton,26,36,3211,3,0.4,70,87.2,0.3,3.7,,6.95
+Joe Knight,Brighton,20,0(1),1,,,,,,,,6
+Joël Veltman,Brighton,34,9(15),1051,,0.2,18.4,81.7,0.1,0.5,,6.48
+Kaoru Mitoma,Brighton,29,19(6),1723,1,1.2,23,82.4,0.3,0.5,,6.61
+Lewis Dunk,Brighton,34,31(2),2837,,0.2,75.5,92.3,,2.5,,6.73
+Mats Wieffer,Brighton,26,23(3),1910,3,0.8,33.9,83.2,0.1,1.5,,6.85
+Matt O'Riley,Brighton,25,2(4),204,,0.7,11.7,87.1,0.7,0.2,,6.27
+Maxim De Cuyper,Brighton,25,17(13),1417,3,1.1,23.1,84.2,1.2,0.4,,6.55
+Nehemiah Oriola,Brighton,19,0(1),1,,,,,,,,6
+Olivier Boscagli,Brighton,28,9(3),801,1,0.3,62.8,86.5,0.4,2.7,,6.75
+Pascal Groß,Brighton,35,18(1),1637,3,2.1,56.5,85.9,2.1,1.9,,6.95
+Solly March,Brighton,32,0(4),38,,,3,75,,0.3,,6.1
+Stefanos Tzimas,Brighton,20,1(8),133,1,0.7,2.7,70.8,,,,6.23
+Tom Watson,Brighton,20,0(6),57,,,3.2,73.7,,0.3,,6.02
+Yankuba Minteh,Brighton,22,26(8),2402,4,1.3,18.5,67.9,1.1,0.4,,6.89
+Yasin Ayari,Brighton,22,20(9),1925,3,0.5,33.2,86.1,0.2,1.4,,6.65
+Armando Broja,Burnley,24,8(16),849,1,0.2,6.3,69.5,,,,6.19
+Ashley Barnes,Burnley,36,1(7),41,,,1.6,30.8,,,,6.03
+Axel Tuanzebe,Burnley,28,14,1203,,,40.6,84.5,,1.6,,6.37
+Bashir Humphreys,Burnley,23,17(3),1579,,0.5,42.6,81.9,0.2,2.5,,6.57
+Florentino Luís,Burnley,27,25(6),2116,2,0.4,33.6,85.5,,1.5,,6.47
+Hannibal Mejbri,Burnley,23,15(12),1231,4,0.8,18.9,77.3,0.4,0.7,0.1,6.35
+Hjalmar Ekdal,Burnley,27,17(2),1540,,0.2,35.8,85,,1.6,,6.56
+Jacob Bruun Larsen,Burnley,27,10(18),1025,1,0.4,10.4,81.5,0.3,0.1,,6.18
+Jaidon Anthony,Burnley,26,32(5),2736,2,1,24.2,79.9,0.4,0.8,0.1,6.58
+James Ward-Prowse,Burnley,31,7(6),682,1,0.8,32.4,88.4,1.4,1.4,,6.44
+Jaydon Amauri Banel,Burnley,21,0(1),9,,,4,100,,,,5.94
+Joe Worrall,Burnley,29,5(6),497,,,14.1,80.6,,0.5,,6.46
+Josh Cullen,Burnley,30,18,1519,2,0.7,48.1,84.1,0.1,2.3,0.2,6.68
+Josh Laurent,Burnley,31,18(15),1761,,0.4,19.5,78,0.1,0.5,,6.25
+Kyle Walker,Burnley,36,35(1),3098,2,0.4,40,77.4,0.2,2.6,,6.47
+Lesley Ugochukwu,Burnley,22,27(8),2352,1,0.3,22.5,83.4,,0.7,,6.36
+Loum Tchaouna,Burnley,22,14(15),1271,1,0.4,11.8,75.1,0.3,0.4,,6.24
+Lucas,Burnley,25,15(5),1406,,1,28,83.9,0.5,0.7,0.1,6.55
+Lyle Foster,Burnley,26,15(11),1373,2,0.4,10.8,70.1,,0.3,,6.25
+Marcus Edwards,Burnley,27,11(12),1067,3,0.9,14.7,82.5,0.2,0.3,0.1,6.32
+Martin Dúbravka,Burnley,37,35,3150,,,34.4,58.2,,7.2,,6.72
+Max Weiß,Burnley,22,3,270,,0.3,37.3,60.7,,5.7,,6.72
+Maxime Estève,Burnley,24,34,2938,,0.2,39.6,86.8,0.1,1.5,,6.55
+Mike Trésor,Burnley,27,0(6),38,,0.2,4.5,85.2,0.2,0.2,,6.02
+Oliver Sonne,Burnley,25,1(6),165,,0.1,8.4,66.1,0.1,0.4,,6.24
+Quilindschy Hartman,Burnley,24,21,1830,5,1,35,75.7,0.5,1.7,,6.63
+Zeki Amdouni,Burnley,25,0(4),69,,,5,95,,0.3,,6.05
+Zian Flemming,Burnley,28,21(8),1777,,0.3,9.6,65,,0.3,,6.64
+Alejandro Garnacho,Chelsea,22,14(10),1271,4,1.2,19.7,87.3,0.3,0.5,,6.48
+Andrey Santos,Chelsea,22,13(14),1256,,0.3,29.5,90.1,,0.5,,6.41
+Benoît Badiashile,Chelsea,25,6(2),473,,,54.9,92.9,,2.4,,6.27
+Cole Palmer,Chelsea,24,24(2),1965,1,0.9,31.5,85.7,0.2,1.3,0.1,6.72
+Dario Essugo,Chelsea,21,0(3),26,,,8.3,84,,,,6.22
+Enzo Fernández,Chelsea,25,35(1),3121,4,1.9,56.7,86,0.4,2.6,0.3,6.96
+Estêvão Willian,Chelsea,19,12(10),850,2,0.7,12.3,80.7,0.2,0.2,,6.54
+Facundo Buonanotte,Chelsea,21,1,46,,2,22,90.9,,1,,6.12
+Filip Jørgensen,Chelsea,24,3(2),378,,,34.2,76,,3.6,,6.55
+Jamie Gittens,Chelsea,22,5(11),491,2,0.6,9.3,79.2,0.2,0.2,0.1,6.35
+Jesse Derry,Chelsea,19,1,54,,,13,92.3,1,,,6.52
+João Pedro,Chelsea,24,31(4),2675,5,0.8,19.8,75.3,,0.3,0.1,7.07
+Jorrel Hato,Chelsea,20,12(10),1144,,0.4,34.6,92,0.2,0.4,,6.33
+Joshua Acheampong,Chelsea,20,8(9),665,,0.1,28.1,92.1,0.1,0.2,,6.27
+Levi Colwill,Chelsea,23,2(1),225,,,64,90.1,,1,,6.71
+Liam Delap,Chelsea,23,12(16),1094,,0.1,6.8,69.8,,,,6.24
+Malo Gusto,Chelsea,23,26(8),2271,3,0.8,37.2,86.8,0.4,1.2,0.1,6.55
+Mamadou Sarr,Chelsea,21,1(2),101,,,17.3,88.5,,,,5.98
+Marc Cucurella,Chelsea,28,31(3),2711,4,1.1,42.5,87.8,0.4,1.3,,6.74
+Marc Guiu,Chelsea,20,1(7),253,1,0.4,3.4,70.4,,,,6.17
+Moisés Caicedo,Chelsea,24,32(1),2802,1,0.5,62.2,91.7,0.1,2,0.1,6.81
+Pedro Neto,Chelsea,26,30(4),2643,6,1.6,27.4,87.3,1.1,0.9,0.1,6.76
+Reece James,Chelsea,26,20(9),1962,4,0.9,45.7,89,1,2,,6.93
+Robert Sánchez,Chelsea,28,35,3041,1,0.1,37.3,66.7,,5.7,,6.62
+Roméo Lavia,Chelsea,22,4(8),380,,0.1,23.7,92.6,,1,0.2,6.14
+Shumaira Mheuka,Chelsea,18,0(1),1,,,2,50,,,,5.99
+Tosin Adarabioyo,Chelsea,28,8(8),791,,0.1,47.3,90.5,,1.3,0.1,6.58
+Trevoh Chalobah,Chelsea,27,31(3),2782,,0.1,67.1,93,,1.5,0.1,6.85
+Tyrique George,Chelsea,20,0(4),143,,,5.8,87,0.3,,,6.15
+Wesley Fofana,Chelsea,25,20(5),1728,1,0.1,50.1,92.1,,1.2,,6.79
+Adam Wharton,Crystal Palace,22,29(5),2566,5,1.3,36.2,79.3,0.8,2,0.4,6.78
+Borna Sosa,Crystal Palace,28,0(7),99,,0.3,5.9,63.4,,0.3,,6.1
+Brennan Johnson,Crystal Palace,25,13(5),1117,1,0.7,13.4,63.6,0.7,0.4,,6.27
+Chadi Riad,Crystal Palace,23,6(3),554,1,0.1,41.6,86.4,,2.6,,6.4
+Chris Richards,Crystal Palace,26,31(2),2826,,0.3,44.8,84,0.2,2,,6.88
+Christantus Uche,Crystal Palace,23,0(14),159,,,4.2,59.3,,0.1,,6.03
+Daichi Kamada,Crystal Palace,30,22(6),1912,,0.7,29.5,84,0.4,1.1,0.1,6.54
+Daniel Muñoz,Crystal Palace,30,29,2406,3,0.9,28.4,79.2,0.5,0.9,,6.96
+Dean Henderson,Crystal Palace,29,37,3330,,,30.1,53.7,,4.7,,6.64
+Eberechi Eze,Crystal Palace,28,1,84,,,21,76.2,,1,,6.76
+Eddie Nketiah,Crystal Palace,27,2(10),419,,0.6,7.3,80.5,,0.1,0.1,6.32
+Evann Guessand,Crystal Palace,25,3(5),328,1,0.1,11.8,83,,,,6.37
+Ismaila Sarr,Crystal Palace,28,24(4),2179,1,0.7,16.9,71.3,0.1,0.3,,6.64
+Jaydee Canvot,Crystal Palace,20,14(6),1334,,0.2,38.3,88.2,,1.9,0.1,6.59
+Jean-Philippe Mateta,Crystal Palace,29,25(7),2224,,0.3,9.8,62.2,0.2,0.3,0.1,6.67
+Jefferson Lerma,Crystal Palace,31,18(13),1725,2,0.4,28.1,79.4,0.2,1.4,,6.5
+Joél Drakes-Thomas,Crystal Palace,17,0(2),7,,,5.5,72.7,,,,6.05
+Jørgen Strand Larsen,Crystal Palace,26,12(2),912,,0.2,16.6,63.9,,0.4,0.1,6.51
+Justin Devenny,Crystal Palace,22,7(14),789,,0.3,12,73.1,,0.4,,6.15
+Kaden Rodney,Crystal Palace,21,0(1),3,,,5,60,,,,5.96
+Marc Guéhi,Crystal Palace,26,20,1800,2,0.5,53.2,85.3,0.1,2.5,0.1,7.04
+Maxence Lacroix,Crystal Palace,26,35,3087,2,0.2,47.3,88.2,0.1,2.4,,7.03
+Nathaniel Clyne,Crystal Palace,35,7(3),597,1,0.3,18.4,79.9,0.2,0.3,,6.41
+Odsonne Édouard,Crystal Palace,28,0(1),2,,,,,,,,6.13
+Rio Cardines,Crystal Palace,20,1,90,,2,33,75.8,2,1,,6.87
+Romain Esse,Crystal Palace,21,0(4),40,,,5,65,,0.3,,6.04
+Tyrick Mitchell,Crystal Palace,27,36(2),3256,2,0.8,29.1,73.1,0.6,1,,6.76
+Walter Benítez,Crystal Palace,33,1,90,,,27,66.7,,5,,7.2
+Will Hughes,Crystal Palace,31,19(12),1570,,0.7,21.9,81.3,0.4,0.8,,6.33
+Yéremy Pino,Crystal Palace,23,26(8),2095,2,1.4,24.4,74.6,0.5,1.1,0.3,6.56
+Beto,Everton,28,17(20),1566,1,0.3,5.6,62,,,,6.54
+Carlos Alcaraz,Everton,23,6(14),685,1,0.5,15.4,81.8,0.2,0.6,,6.25
+Dwight McNeil,Everton,26,14(8),1171,1,0.7,14.7,81.5,0.5,0.3,0.1,6.42
+Harrison Armstrong,Everton,19,6(7),529,,0.3,15.8,80.6,,0.4,,6.23
+Idrissa Gueye,Everton,36,25,2102,3,0.5,42.6,87.3,0.2,0.8,,6.66
+Iliman Ndiaye,Everton,26,32,2789,3,0.9,29.4,84,0.2,0.2,0.1,7.02
+Jack Grealish,Everton,30,18(2),1632,6,1.9,28.7,84.1,0.5,0.9,0.2,6.86
+Jake O'Brien,Everton,25,35(2),3124,1,0.5,29.2,74,0.4,1.1,,6.66
+James Garner,Everton,25,38,3414,7,1.5,47.2,87.2,1.4,1.6,0.1,7.17
+James Tarkowski,Everton,33,37,3330,3,0.5,42.1,80.6,0.1,2.7,0.1,7.12
+Jarrad Branthwaite,Everton,24,7(3),681,,0.3,35.1,83.8,,2.1,,6.76
+Jordan Pickford,Everton,32,38,3420,,0.1,37.9,61.6,,9.5,,6.53
+Kiernan Dewsbury-Hall,Everton,27,30(1),2638,4,1.2,33.1,82.5,0.7,0.7,,6.95
+Merlin Röhl,Everton,24,6(10),679,,0.4,10.6,77.5,0.2,0.2,,6.39
+Michael Keane,Everton,33,29(4),2590,1,0.1,33.4,85.5,,1.8,,6.91
+Nathan Patterson,Everton,24,3(4),240,,,12,76.2,,0.6,,6.49
+Séamus Coleman,Everton,37,1(4),20,,0.2,3.6,100,0.4,0.2,,5.95
+Thierno Barry,Everton,23,21(17),1918,,0.3,9.5,60.5,,,,6.43
+Tim Iroegbunam,Everton,23,17(12),1487,2,0.3,16.9,81.4,,0.3,,6.51
+Tyler Dibling,Everton,20,4(10),353,,0.3,7.3,86.3,0.1,0.2,,6.26
+Tyrique George,Everton,20,1(10),210,,0.3,8,78.4,0.4,0.1,,6.2
+Vitaliy Mykolenko,Everton,27,33,2961,1,0.7,36,79.8,0.6,1.6,,6.68
+Adama Traoré,Fulham,30,1(14),264,,0.2,5.2,79.5,0.2,0.1,0.1,6.08
+Alex Iwobi,Fulham,30,29,2436,3,1.5,49.4,85.1,1.1,2.5,0.1,6.75
+Antonee Robinson,Fulham,29,17(5),1492,,1,36.4,80,0.6,1.5,,6.69
+Bernd Leno,Fulham,34,38,3420,,,36.7,77.3,,4.6,,6.6
+Calvin Bassey,Fulham,26,28(2),2532,,0.3,56.9,87.7,0.1,1.9,,6.59
+Emile Smith Rowe,Fulham,26,22(15),1931,,0.5,24.9,91.1,,0.2,,6.4
+Harrison Reed,Fulham,31,1(6),90,,0.4,6.1,93,0.4,0.4,,6.03
+Harry Wilson,Fulham,29,32(4),2695,7,1.1,21.6,81.2,0.9,1,0.2,6.9
+Issa Diop,Fulham,29,8(5),814,,,38,87.7,,1.2,,6.33
+Joachim Andersen,Fulham,30,33,2884,1,0.2,68.9,86.1,0.1,5,,6.82
+Jonah Kusi-Asare,Fulham,19,0(7),49,,0.1,2.3,68.8,,,,6
+Jorge Cuenca,Fulham,26,11(4),939,,0.2,41.7,88.3,0.1,1.7,,6.65
+Joshua King,Fulham,19,15(17),1306,2,0.5,10.9,79.9,,0.1,,6.29
+Kenny Tete,Fulham,30,21(1),1796,,0.5,40.3,84.4,0.6,1.6,,6.92
+Kevin,Fulham,23,9(17),1041,1,0.5,13,76.4,0.5,0.8,,6.56
+Oscar Bobb,Fulham,23,6(8),570,,0.9,13.9,80.4,0.1,,0.1,6.37
+Raúl Jiménez,Fulham,35,27(9),2199,3,0.7,14.4,63.5,0.1,0.4,,6.69
+Rodrigo Muniz,Fulham,25,10(11),1000,1,0.4,6.3,42.4,,0.1,,6.39
+Ryan Sessegnon,Fulham,26,20(7),1822,1,0.5,25.1,76.4,0.2,0.8,0.1,6.59
+Samuel Chukwueze,Fulham,27,10(13),1075,4,1,18,73.8,0.3,0.7,0.1,6.54
+Sander Berge,Fulham,28,34(1),2912,1,0.6,49.4,89.8,0.1,1.5,0.1,6.57
+Saša Lukić,Fulham,30,20(6),1737,2,1.1,28.1,85.6,0.7,0.3,,6.63
+Timothy Castagne,Fulham,30,20(10),1842,,0.6,26.5,86.3,0.5,1.1,,6.6
+Tom Cairney,Fulham,35,6(18),764,,0.5,28.8,92.6,0.1,1,0.1,6.33
+Anton Stach,Leeds United,27,28(1),2379,3,2.2,32.4,77.3,1.6,1.4,0.1,7.15
+Ao Tanaka,Leeds United,27,14(14),1318,,0.6,24.6,85.5,0.5,0.8,,6.42
+Brenden Aaronson,Leeds United,25,30(7),2472,5,0.9,18.1,81.1,0.3,0.2,0.1,6.63
+Daniel James,Leeds United,28,6(13),554,,0.5,6.3,60.5,0.4,0.2,0.1,6.11
+Dominic Calvert-Lewin,Leeds United,29,30(5),2730,1,0.6,13.1,58.5,,0.1,,6.84
+Ethan Ampadu,Leeds United,25,35,3123,1,0.5,49.5,85.6,0.3,2.4,0.1,6.84
+Facundo Buonanotte,Leeds United,21,0(3),36,,0.3,4.7,57.1,0.3,,,5.93
+Gabriel Gudmundsson,Leeds United,27,31(1),2645,,0.7,29.9,76.3,0.8,0.9,,6.65
+Ilia Gruev,Leeds United,26,15(8),1325,3,0.5,25.4,89.6,0.2,0.8,,6.4
+Jack Harrison,Leeds United,29,1(10),264,,0.2,10.5,79.3,0.2,0.3,,6.1
+Jaka Bijol,Leeds United,27,21(4),1893,2,0.3,40.3,84.9,,2.7,,6.87
+James Justin,Leeds United,28,21(8),1897,1,0.4,24.4,76,0.2,1.2,,6.77
+Jayden Bogle,Leeds United,26,32(2),2806,2,0.6,26,76.2,0.5,1,,6.55
+Joe Rodon,Leeds United,28,33(2),2954,,0.3,41.4,87.4,0.1,1.1,,6.62
+Joël Piroe,Leeds United,27,2(14),246,,0.1,6.1,81.4,0.1,0.4,,6.03
+Karl Darlow,Leeds United,35,22,1980,,,38.5,58.2,,7.6,,6.67
+Lucas Perri,Leeds United,28,16,1440,,,34.9,53.3,,5.9,,6.3
+Lukas Nmecha,Leeds United,27,10(21),1076,1,0.4,7,65.9,,0.2,,6.35
+Noah Okafor,Leeds United,26,19(9),1570,1,0.7,11.9,76.2,0.3,0.8,,6.74
+Pascal Struijk,Leeds United,27,33(1),2937,1,0.4,54.1,88.5,,2.1,,6.82
+Sam Byram,Leeds United,32,0(2),8,,,3,50,,,,5.94
+Sean Longstaff,Leeds United,28,10(13),1007,2,1.1,19.5,84.6,1.2,0.7,,6.59
+Sebastiaan Bornauw,Leeds United,27,5(7),433,,,12.2,82.9,0.1,0.9,,6.34
+Wilfried Gnonto,Leeds United,22,4(19),527,1,0.4,9.5,76.6,0.1,0.3,,6.19
+Alexander Isak,Liverpool,26,8(6),703,1,0.1,6.3,62.5,,0.2,,6.32
+Alexis Mac Allister,Liverpool,27,31(6),2664,4,0.9,38.9,86.6,0.2,1.3,,6.57
+Alisson,Liverpool,33,26,2340,,,31.3,79,,4.2,,6.58
+Andy Robertson,Liverpool,32,11(13),1173,,0.8,29.6,83.3,0.5,1.1,,6.41
+Cody Gakpo,Liverpool,27,32(4),2750,5,1.5,20.8,78.5,0.3,0.4,0.1,6.89
+Conor Bradley,Liverpool,23,12(3),936,1,0.3,32.8,83.9,0.3,0.7,,6.56
+Curtis Jones,Liverpool,25,18(16),1933,2,0.6,48.4,91.6,,1.8,0.1,6.51
+Dominik Szoboszlai,Liverpool,25,36,3233,7,2.2,60.8,87.7,1.9,3.6,0.1,7.15
+Federico Chiesa,Liverpool,28,1(25),318,1,0.1,4.3,71.7,,,,6.18
+Florian Wirtz,Liverpool,23,27(6),2390,3,1.8,43.1,84.5,0.2,1.2,0.2,6.8
+Freddie Woodman,Liverpool,29,2(1),212,,,26.3,57,,5,,6.58
+Giorgi Mamardashvili,Liverpool,25,10,868,,,28.7,70.4,,3.6,,6.64
+Harvey Elliott,Liverpool,23,0(1),1,,,8,50,,,,6
+Hugo Ekitike,Liverpool,24,21(7),1811,4,0.8,14.3,76.8,,0.1,,6.93
+Ibrahima Konaté,Liverpool,27,36,3100,,0.2,60.2,89.6,,1.8,0.1,6.93
+Jeremie Frimpong,Liverpool,25,12(9),1041,1,0.7,21,84.6,0.5,0.3,,6.45
+Joe Gomez,Liverpool,29,7(14),599,2,0.2,15.2,79.7,0.1,0.5,,6.3
+Milos Kerkez,Liverpool,22,27(7),2262,1,0.8,31.5,85.3,0.4,0.8,,6.55
+Mohamed Salah,Liverpool,34,23(4),2150,7,1.8,29.4,76.9,0.7,0.7,0.1,6.77
+Rio Ngumoha,Liverpool,18,5(14),552,1,0.8,10.1,87,0.4,0.2,,6.54
+Ryan Gravenberch,Liverpool,24,34(2),2997,3,0.8,51.7,88.9,,0.6,0.1,6.91
+Trey Nyoni,Liverpool,19,0(6),21,,0.2,3.7,90.9,,,,5.96
+Virgil van Dijk,Liverpool,35,38,3420,,0.3,73.5,89,,3.6,,7.06
+Wataru Endo,Liverpool,33,1(7),172,1,0.1,11.8,85.1,,0.6,,6.29
+Abdukodir Khusanov,Manchester City,22,15(6),1431,,0.3,51.4,91.8,,2,,6.77
+Antoine Semenyo,Manchester City,26,17,1404,1,0.8,24.7,85.5,0.3,0.2,0.1,7.15
+Bernardo Silva,Manchester City,32,34(4),2888,4,1.2,58,90.2,0.5,1.8,0.2,6.77
+Divine Mukasa,Manchester City,19,0(2),26,,1,9.5,94.7,,,0.5,6.09
+Erling Haaland,Manchester City,26,34(1),2960,8,0.7,11,65.6,,0.1,0.2,7.53
+Gianluigi Donnarumma,Manchester City,27,34,3060,,,25.9,80.3,,3.8,,6.82
+James Trafford,Manchester City,23,4,360,,,29.5,73.7,,3.3,,6.79
+Jeremy Doku,Manchester City,24,19(11),1787,5,2,25.7,82.9,0.5,0.5,0.3,7.25
+John Stones,Manchester City,32,5(4),439,,0.1,33.6,93.4,,0.8,,6.2
+Joško Gvardiol,Manchester City,24,16(2),1374,2,0.2,58.2,89.4,0.1,2.1,0.1,6.95
+Marc Guéhi,Manchester City,26,15,1350,1,0.6,83,93.3,0.1,1.8,0.1,7.24
+Mateo Kovačić,Manchester City,32,1(5),127,1,0.7,24.7,91.2,,0.5,0.2,6.35
+Matheus Nunes,Manchester City,28,32(2),2865,5,0.8,63.4,89.1,0.5,1.8,0.1,7.03
+Max Alleyne,Manchester City,21,2,136,,0.5,64,93.8,,4,,7.02
+Nathan Aké,Manchester City,31,6(12),688,,0.4,27.6,88.7,0.2,0.4,,6.38
+Nicolás González,Manchester City,24,17(8),1568,,0.4,52.6,90.3,,1.4,,6.77
+Nico O'Reilly,Manchester City,21,29(5),2649,3,0.7,39.8,86.2,0.3,0.5,,7.01
+Omar Marmoush,Manchester City,27,8(13),700,3,0.6,7.7,87,,,0.1,6.53
+Oscar Bobb,Manchester City,23,5(4),467,1,1.1,23,90.8,0.2,0.2,0.1,6.71
+Phil Foden,Manchester City,26,23(10),2089,5,1.6,36.7,88.2,1.2,1.5,0.2,7.01
+Rayan Aït-Nouri,Manchester City,25,12(5),976,2,0.7,34.7,90.3,0.4,0.4,,6.85
+Rayan Cherki,Manchester City,23,19(14),1788,12,1.8,38.7,86.5,0.7,0.9,0.4,7.04
+Rico Lewis,Manchester City,21,4(7),402,1,0.6,25.9,84.6,,0.8,0.2,6.28
+Rodri,Manchester City,30,17(4),1515,,1.2,77,90.1,,4.3,0.2,6.96
+Rúben Dias,Manchester City,29,24(2),2141,,0.3,67.4,93,0.1,2,,6.95
+Sávio,Manchester City,22,7(17),821,1,0.4,15.5,82.8,0.3,0.2,0.1,6.36
+Tijjani Reijnders,Manchester City,28,19(9),1638,2,0.6,28.5,89.1,0.4,0.5,0.1,6.65
+Altay Bayındır,Manchester Utd,28,6,540,,0.2,29.5,60.5,,5.2,,6.13
+Amad Diallo,Manchester Utd,24,27(5),2348,3,1.3,28.3,87.9,0.3,0.7,0.1,6.9
+Ayden Heaven,Manchester Utd,19,11(6),924,1,0.1,29.1,90.5,,1,,6.54
+Bendito Mantato,Manchester Utd,18,0(1),16,,1,5,100,,,,6.07
+Benjamin Šeško,Manchester Utd,23,17(13),1639,1,0.3,10.2,69,,0.1,,6.76
+Bruno Fernandes,Manchester Utd,31,35,3069,21,3.9,57,82.2,1.6,3.9,0.4,7.49
+Bryan Mbeumo,Manchester Utd,27,31(2),2625,3,1.4,24.1,79,1.1,0.5,0.2,6.87
+Casemiro,Manchester Utd,34,33(1),2594,2,1.1,47.1,81.3,0.1,2.5,0.1,7.08
+Diogo Dalot,Manchester Utd,27,29(5),2616,3,0.9,33.3,85,0.5,1.2,0.1,6.81
+Harry Maguire,Manchester Utd,33,19(4),1655,2,0.2,37,86.1,,2,,6.72
+Jack Fletcher,Manchester Utd,19,0(3),107,,0.7,15,82.2,,0.7,,6.23
+Joshua Zirkzee,Manchester Utd,25,5(19),610,1,0.5,10.2,74.3,0.1,0.1,,6.28
+Kobbie Mainoo,Manchester Utd,21,16(12),1654,2,0.8,37.4,89.2,0.1,0.8,,6.65
+Leny Yoro,Manchester Utd,20,18(14),1740,,0.1,30.8,88.4,,1.1,,6.41
+Lisandro Martínez,Manchester Utd,28,13(5),1231,,0.3,52.2,89.9,0.1,2.4,0.1,6.68
+Luke Shaw,Manchester Utd,31,38,3233,1,0.4,45.1,86.8,0.2,1.6,0.1,6.72
+Manuel Ugarte,Manchester Utd,25,8(14),882,,0.1,22.8,85.1,,0.6,,6.41
+Mason Mount,Manchester Utd,27,12(11),1020,,0.6,18.7,81.6,,1,0.2,6.49
+Matheus Cunha,Manchester Utd,27,29(4),2504,2,1,26.7,80.5,0.3,0.7,0.2,7.11
+Matthijs de Ligt,Manchester Utd,27,13,1170,,0.2,47.1,87.7,0.3,1.6,0.2,6.92
+Noussair Mazraoui,Manchester Utd,28,11(9),985,,0.3,27.2,87.3,0.2,1,,6.62
+Patrick Dorgu,Manchester Utd,21,15(11),1446,4,1,19.4,76,0.6,0.3,,6.89
+Senne Lammens,Manchester Utd,24,32,2880,,,29.4,59.1,,6,,6.57
+Shea Lacey,Manchester Utd,19,0(3),40,,,3.7,81.8,,0.3,,6.25
+Tyler Fletcher,Manchester Utd,19,0(2),17,,,9.5,94.7,,,,6.03
+Tyler Fredricson,Manchester Utd,21,0(1),2,,,1,,,,,6.12
+Tyrell Malacia,Manchester Utd,27,0(3),15,,,4.3,84.6,,,,6.1
+Aaron Ramsdale,Newcastle,28,11(1),1003,,0.1,33.3,66.8,,4.6,,6.45
+Alex Murphy,Newcastle,22,0(2),7,,,3.5,100,,,,6.1
+Anthony Elanga,Newcastle,24,14(18),1314,1,0.5,13.3,80.8,0.4,0.3,,6.23
+Anthony Gordon,Newcastle,25,24(2),1818,2,1,19.9,81.8,0.6,0.7,0.1,6.68
+Bruno Guimarães,Newcastle,28,27(2),2460,5,1.6,50,86.1,0.7,2.8,0.3,7.14
+Dan Burn,Newcastle,34,25(4),2200,2,0.2,36.3,79.3,,1,,6.66
+Emil Krafth,Newcastle,32,1,46,,,19,73.7,,,,5.72
+Fabian Schär,Newcastle,34,11(5),1091,,0.3,49.8,84.4,0.1,4.4,,6.8
+Harvey Barnes,Newcastle,28,19(18),1964,1,0.6,15.8,80.7,0.4,0.2,,6.45
+Jacob Murphy,Newcastle,31,19(14),1624,2,0.7,15.1,73.3,0.7,0.6,0.1,6.46
+Jacob Ramsey,Newcastle,25,15(13),1448,3,0.8,25.3,89.8,0.1,0.6,0.1,6.44
+Jamaal Lascelles,Newcastle,32,0(2),19,,,4,75,,,,6.1
+Joe Willock,Newcastle,27,10(14),981,2,0.6,15,84.1,0.1,0.4,,6.31
+Joelinton,Newcastle,30,23(4),1958,1,0.6,31.1,82.7,0.1,0.8,,6.81
+Kieran Trippier,Newcastle,35,18(3),1592,1,1.3,50.5,81.1,1.6,2.3,,6.55
+Lewis Hall,Newcastle,21,24(6),2181,1,0.8,42,85.2,0.7,1.6,0.1,6.77
+Lewis Miley,Newcastle,20,15(8),1494,4,0.7,36.5,89.8,0.3,0.9,,6.76
+Malick Thiaw,Newcastle,25,33(2),2965,,0.2,48.4,89.6,,2.4,,6.88
+Nick Pope,Newcastle,34,27,2417,,,22.6,60.3,,3.6,,6.69
+Nick Woltemade,Newcastle,24,24(9),1916,3,0.7,11.6,76.3,,0.2,0.1,6.6
+Sandro Tonali,Newcastle,26,31(4),2548,2,0.9,44.7,84.4,0.6,2,0.1,6.58
+Sean Neave,Newcastle,19,0(1),13,,,,,,,,5.82
+Sven Botman,Newcastle,26,21(4),1838,1,0.3,47.6,87.1,,1.9,,6.88
+Tino Livramento,Newcastle,23,14(3),1328,1,0.6,38.4,88.8,0.5,1.2,0.1,6.68
+William Osula,Newcastle,23,8(16),811,,0.3,3.4,80.2,0.1,,,6.36
+Yoane Wissa,Newcastle,30,4(15),524,1,0.2,4.9,69.9,,0.2,0.1,6.14
+Angus Gunn,Nottingham,30,0(1),45,,,19,31.6,,6,,6.13
+Arnaud Kalimuendo,Nottingham,24,0(9),91,,0.1,3.2,82.8,,,,6.03
+Callum Hudson-Odoi,Nottingham,25,21(9),1852,4,1.5,21.9,89.2,0.4,0.8,,6.58
+Chris Wood,Nottingham,34,11(4),907,,0.3,10.7,69.6,,0.1,,6.44
+Dan Ndoye,Nottingham,25,14(10),1178,1,0.6,11.8,78.4,0.4,0.3,,6.39
+Dilane Bakwa,Nottingham,24,6(8),556,2,0.8,13.9,79,0.6,0.1,0.1,6.3
+Douglas Luiz,Nottingham,28,5(3),319,,0.6,28,92.4,0.1,1.3,,6.24
+Elliot Anderson,Nottingham,23,37(1),3335,4,1.4,62.7,85.5,1.3,3.1,0.1,7.2
+Ibrahim Sangaré,Nottingham,28,25(3),2082,2,0.4,34.1,86.8,,1.4,0.1,6.69
+Igor Jesus,Nottingham,25,28(9),2318,4,0.4,12.4,72.7,0.1,0.4,,6.6
+Jair Cunha,Nottingham,21,6(3),517,,0.1,24.6,80.1,,0.6,,6.31
+James Mcatee,Nottingham,23,2(12),289,1,0.4,8.6,84.3,,0.2,,6.15
+John,Nottingham,30,5,438,,,26,63.8,,6,,5.82
+Jota Silva,Nottingham,27,0(1),11,,,2,100,,,,6.25
+Lorenzo Lucca,Nottingham,25,1(3),127,,0.3,4,56.3,,,,6.29
+Luca Netz,Nottingham,23,3(4),355,,0.3,14.3,83,,0.7,,6.38
+Matz Sels,Nottingham,34,30(1),2668,,,25.3,57.1,,4.8,,6.64
+Morato,Nottingham,25,14(7),1339,,0.1,36,85.3,,2.3,,6.46
+Morgan Gibbs-White,Nottingham,26,35(2),3114,4,1.3,32.6,81.1,0.2,1.2,,6.85
+Murillo,Nottingham,24,25,2133,,0.3,45.3,83.6,,3.3,,6.79
+Neco Williams,Nottingham,25,36(1),3202,3,1,35.8,81.8,0.8,1.3,,6.96
+Nicolás Domínguez,Nottingham,28,17(10),1185,1,0.4,19.8,85.2,0.2,0.6,,6.44
+Nicolò Savona,Nottingham,23,11(3),1027,,0.5,28.5,78.7,0.6,0.9,,6.46
+Nikola Milenković,Nottingham,28,37(1),3375,,0.1,40.5,86.6,,2.2,,6.59
+Ola Aina,Nottingham,29,18,1590,,0.5,34.9,84.7,0.4,2,,6.86
+Oleksandr Zinchenko,Nottingham,29,4(1),353,,1,50.8,90.6,0.2,1.6,0.2,6.48
+Omari Hutchinson,Nottingham,22,17(14),1685,5,1.1,17.4,83.1,0.9,0.4,,6.58
+Ryan Yates,Nottingham,28,2(20),604,2,0.2,11.8,78.1,0.1,0.2,,6.36
+Stefan Ortega,Nottingham,33,3,270,,,22.7,69.1,,7.7,,6.59
+Taiwo Awoniyi,Nottingham,29,3(14),482,1,0.4,4.4,80,,,0.1,6.32
+Zach Abbott,Nottingham,20,2(1),171,,,20.7,71,0.3,0.3,,6.38
+Arthur Masuaku,Sunderland,32,2(1),127,,0.3,16,81.3,0.7,0.3,,6.41
+Bertrand Traoré,Sunderland,30,9(3),639,,0.7,15,79.4,0.1,0.3,,6.55
+Brian Brobbey,Sunderland,24,22(9),1934,1,0.5,8.9,72,,0.1,,6.45
+Chemsdine Talbi,Sunderland,21,16(12),1565,1,0.4,14.4,81.3,0.3,0.5,,6.34
+Chris Rigg,Sunderland,19,11(7),768,1,0.5,11.8,71.8,0.2,0.6,0.1,6.34
+Daniel Ballard,Sunderland,26,24(5),2149,,0.5,38,82.1,,2,,6.88
+Dan Neil,Sunderland,24,0(3),13,,,3,88.9,,0.3,,6
+Dennis Cirkin,Sunderland,24,3(5),320,,,12.4,77.8,0.1,0.1,,6.34
+Eliezer Mayenda,Sunderland,21,8(12),757,,0.2,4.3,65.9,,0.1,,6.28
+Enzo Le Fée,Sunderland,26,33(3),2936,6,1.5,30.9,81.4,0.7,0.9,0.3,6.81
+Granit Xhaka,Sunderland,33,32(2),2903,6,1,53.1,83.7,0.7,4.1,0.1,6.93
+Habib Diarra,Sunderland,22,15(5),1408,2,0.4,21.8,81.9,0.2,0.2,0.1,6.38
+Jenson Seelt,Sunderland,23,1(1),134,,,54.5,88.1,,1,,6.65
+Jocelin Ta Bi,Sunderland,21,1,39,,,2,100,1,,,6.47
+Luke O'Nien,Sunderland,31,5(7),564,1,0.2,20.4,83.7,,1.3,,6.22
+Lutsharel Geertruida,Sunderland,26,17(11),1685,,0.3,26.5,86.1,0.1,0.9,,6.42
+Marc Guiu,Sunderland,20,0(2),13,,,2.5,60,,,,6.04
+Melker Ellborg,Sunderland,23,3,270,,,32.7,46.9,,4.3,,6.77
+Nilson Angulo,Sunderland,23,5(3),406,,0.4,9.8,73.1,0.1,,,6.37
+Noah Sadiki,Sunderland,21,33,2896,1,0.6,33.5,85.4,0.1,1.2,,6.54
+Nordi Mukiele,Sunderland,28,32,2787,4,0.8,37.2,78.6,0.4,1.4,0.1,6.99
+Omar Alderete,Sunderland,29,32(1),2802,1,0.3,39.5,81.1,0.1,2.4,0.1,6.87
+Patrick Roberts,Sunderland,29,0(1),27,,,20,80,,1,,6.08
+Reinildo Mandava,Sunderland,32,23(2),1970,1,0.2,32.6,85.9,0.2,1,,6.65
+Robin Roefs,Sunderland,23,35,3150,,0.1,37.7,63.7,,5.8,,6.65
+Romaine Mundle,Sunderland,23,2(12),401,,0.1,7.4,85.6,0.1,0.1,,6.11
+Simon Adingra,Sunderland,24,9(5),658,,0.5,11.5,75.8,0.4,0.1,0.1,6.31
+Trai Hume,Sunderland,24,34(4),3040,1,0.8,27.6,75.4,0.3,1.1,,6.65
+Wilson Isidor,Sunderland,26,11(21),1160,,,4.2,60,,,,6.32
+Antonín Kinský,Tottenham,23,7,630,,,31.1,62.8,,5.9,,6.42
+Archie Gray,Tottenham,20,18(6),1480,2,0.3,22.5,83.1,0.2,0.9,,6.35
+Ben Davies,Tottenham,33,2(1),138,,0.3,21.7,86.2,0.7,1.7,,6.77
+Brennan Johnson,Tottenham,25,6(10),606,,0.4,8.8,70,0.3,0.2,,6.39
+Callum Olusesi,Tottenham,19,0(1),14,,,8,100,,1,,6.14
+Conor Gallagher,Tottenham,26,14(2),1191,1,0.8,32.8,84.7,0.4,1.3,,6.54
+Cristian Romero,Tottenham,28,22(1),1875,1,0.5,49,87.3,,2,,6.96
+Dane Scarlett,Tottenham,22,0(2),7,,,2,50,0.5,,,6.01
+Destiny Udogie,Tottenham,23,14(6),1341,1,0.6,29.3,85.5,0.3,0.2,,6.3
+Djed Spence,Tottenham,26,23(7),2057,,0.3,29.4,80.8,0.3,1.1,,6.47
+Dominic Solanke,Tottenham,28,11(4),1001,,0.4,10.5,74.1,,0.1,,6.62
+Guglielmo Vicario,Tottenham,29,31,2790,,,34.5,67,,5.1,,6.55
+James Maddison,Tottenham,29,0(3),34,,,12.3,94.6,0.3,1,,6.09
+James Rowswell,Tottenham,20,0(1),1,,,,,,,,6
+João Palhinha,Tottenham,31,23(10),2198,2,0.2,31.6,82,,1.2,,6.82
+Jun'ai Byfield,Tottenham,17,0(1),1,,,5,80,,,,6
+Kevin Danso,Tottenham,27,17(7),1492,,0.1,39.8,86.9,,1.5,,6.7
+Lucas Bergvall,Tottenham,20,11(12),966,3,0.2,13.3,81.6,0.1,0.4,,6.3
+Mathys Tel,Tottenham,21,13(18),1343,1,1,11.6,77.4,0.9,0.4,,6.56
+Micky van de Ven,Tottenham,25,35,3044,1,0.2,50.6,90.5,,1.9,,6.56
+Mohammed Kudus,Tottenham,26,19,1546,5,1.2,23.4,85.6,1.5,1,,6.98
+Pape Matar Sarr,Tottenham,23,13(13),1391,4,0.4,24.3,85,0.1,0.8,0.1,6.63
+Pedro Porro,Tottenham,26,32(2),2799,2,1.6,43.2,75,1.8,3.9,0.1,6.86
+Radu Drăgușin,Tottenham,24,5(5),516,,,23.9,77.8,,0.6,,6.24
+Randal Kolo Muani,Tottenham,27,21(9),1673,1,0.6,10.9,70.4,0.2,0.2,,6.31
+Richarlison,Tottenham,29,20(12),1961,4,0.6,9.9,62.1,,0.3,,6.81
+Rodrigo Bentancur,Tottenham,29,23(3),1893,1,0.4,39.2,85.8,,0.7,,6.76
+Souza,Tottenham,20,2(2),144,,0.8,6.8,92.6,,,,6.09
+Wilson Odobert,Tottenham,21,10(14),982,2,0.8,13.5,84.9,0.3,0.3,,6.42
+Xavi Simons,Tottenham,23,19(9),1758,5,1.2,28.6,82.9,0.5,1.3,0.1,6.65
+Yves Bissouma,Tottenham,30,7(4),606,,,28.7,88,,0.1,,6.28
+Aaron Wan-Bissaka,West Ham,28,23(2),2084,2,0.7,29.5,76.7,0.6,1,,6.7
+Adama Traoré,West Ham,30,0(9),116,,,2.9,73.1,0.2,,,6
+Alphonse Areola,West Ham,33,20,1800,1,0.1,27.1,46.6,,6.4,,6.6
+Andy Irving,West Ham,26,2(5),158,,0.4,13.1,89.1,0.4,0.9,,6.16
+Axel Disasi,West Ham,28,14,1255,,0.1,40.4,86.6,,2.1,,6.59
+Callum Marshall,West Ham,21,0(2),58,,,2,50,,,,5.92
+Callum Wilson,West Ham,34,11(21),1244,1,0.3,4.8,64.5,,,,6.32
+Crysencio Summerville,West Ham,24,29(2),2483,2,0.9,20.6,82.9,0.5,0.3,,6.79
+El Hadji Malick Diouf,West Ham,21,30(2),2712,5,0.9,32.4,74.3,0.9,1.8,,6.76
+Ezra Mayers,West Ham,19,0(6),113,,0.3,13.5,84,0.3,0.7,,6.13
+Freddie Potts,West Ham,22,12(10),1170,1,0.4,24.1,83.6,0.3,1.2,,6.42
+George Earthy,West Ham,22,0(1),8,,,3,100,,,,5.91
+Guido Rodríguez,West Ham,32,2(4),177,,,12.7,89.5,,,,6.1
+Igor,West Ham,28,1(3),103,,0.3,5.5,72.7,,0.5,,6.14
+James Ward-Prowse,West Ham,31,5,416,,2.4,38.6,89.6,2,2,,6.49
+Jarrod Bowen,West Ham,29,38,3409,11,1.2,20.8,73.9,0.7,0.4,0.1,7.04
+Jean-Clair Todibo,West Ham,26,22(1),1823,1,0.2,34,87.3,,1.1,,6.41
+Konstantinos Mavropanos,West Ham,28,27(4),2525,,0.1,37.8,82.2,,2.9,,6.91
+Kyle Walker-Peters,West Ham,29,15(8),1381,,0.3,25.9,85.6,,0.7,,6.49
+Lucas Paquetá,West Ham,29,18,1522,1,1.3,43.8,77,0.4,1.4,0.2,6.78
+Luis Guilherme,West Ham,20,1(4),122,,0.2,6,90,,0.2,,6.09
+Mads Hermansen,West Ham,26,18,1620,1,0.1,32.9,58.2,,4.6,,6.54
+Mateus Fernandes,West Ham,22,35(1),3027,4,1,43.4,87.5,0.3,3.1,0.2,6.9
+Max Kilman,West Ham,29,17(4),1559,,0.2,32.7,87.9,,1.3,,6.4
+Mohamadou Kanté,West Ham,20,0(11),67,,0.1,2.8,71,,,,6.1
+Nayef Aguerd,West Ham,30,2,180,,,57.5,90.4,,3,,5.98
+Niclas Füllkrug,West Ham,33,5(3),410,,0.9,11.6,61.3,,0.1,,6.17
+Oliver Scarles,West Ham,20,9(4),660,,0.4,21.2,80.4,0.2,1.4,0.1,6.44
+Pablo,West Ham,22,10(4),827,1,1,14.4,73.6,0.1,0.1,0.1,6.5
+Soungoutou Magassa,West Ham,22,11(11),981,,0.2,18.4,80.7,,0.9,,6.35
+Tomáš Souček,West Ham,31,24(11),2199,,0.3,25.6,77.7,,1,,6.59
+Valentín Castellanos,West Ham,27,17(1),1397,,0.7,13.9,64.4,0.1,0.1,0.1,6.85
+Adam Armstrong,Wolves,29,14,1147,2,0.4,10.9,68.4,0.1,,0.1,6.47
+André,Wolves,25,30(5),2766,,0.5,37.5,91.4,0.3,1.7,,6.41
+Angel Gomes,Wolves,26,7(5),464,,0.5,15.7,85.6,0.2,0.8,,6.21
+Daniel Bentley,Wolves,33,3,270,,,29.3,50,,4.7,,6.19
+David Møller Wolfe,Wolves,24,11(11),1052,2,0.4,11.8,74.2,0.4,0.6,,6.25
+Emmanuel Agbadou,Wolves,29,12(2),1102,,0.3,47.1,83,0.3,3.6,0.1,6.54
+Fer López,Wolves,22,2(7),230,1,0.3,11.4,72.8,0.1,0.1,0.1,6.05
+Hugo Bueno,Wolves,23,26(9),2366,2,1.1,24.2,80.5,1.7,0.7,,6.7
+Hwang Hee-chan,Wolves,30,18(8),1455,2,0.6,14.5,75.4,0.1,0.5,0.1,6.18
+Jackson Tchatchoua,Wolves,24,19(12),1840,1,0.7,17.5,76.2,0.7,0.5,,6.3
+Jean-Ricner Bellegarde,Wolves,28,15(11),1254,1,0.5,16.5,79.4,0.2,1,0.1,6.28
+Jerome Abbey,Wolves,16,0(1),16,,,5,20,,,,6.3
+Jhon Arias,Wolves,28,14(9),1127,,0.5,17.3,89.5,0.4,0.3,,6.41
+João Gomes,Wolves,25,32(3),2836,1,0.5,41.6,85.6,0.3,1.1,,6.67
+Jørgen Strand Larsen,Wolves,26,14(8),1405,1,0.3,11.8,65,,0.1,,6.19
+José Sá,Wolves,33,23,2070,,,30.2,59.9,,6.2,,6.59
+Ki-Jana Hoever,Wolves,24,6(2),429,,0.6,19.3,68.8,0.9,1.1,,6.53
+Ladislav Krejčí,Wolves,27,27(1),2361,1,0.3,47,82.5,0.1,3.1,,6.53
+Marshall Munetsi,Wolves,30,9(4),874,1,0.2,13,63.3,0.2,0.5,,6.54
+Mateus Mane,Wolves,18,19(8),1791,1,1.1,13.9,76.3,1.3,0.4,,6.61
+Matt Doherty,Wolves,34,11,793,,0.3,27.1,80.5,0.2,1.4,,6.44
+Pedro Lima,Wolves,20,3(6),260,,0.3,6.1,63.6,0.4,0.3,,6.1
+Rodrigo Gomes,Wolves,23,9(13),961,,0.1,12,72.2,0.1,0.1,,6.29
+Sam Johnstone,Wolves,33,12,1080,,,36.5,55.9,,10.6,,6.47
+Santiago Bueno,Wolves,27,28(1),2553,1,0.3,37.4,86.5,0.1,1.9,,6.61
+Saša Kalajdžić,Wolves,29,0(1),14,,,5,80,,,,6.31
+Tawanda Chirewa,Wolves,22,0(2),25,,,1.5,100,,,,6.11
+Tolu Arokodare,Wolves,25,13(20),1409,1,0.4,8.2,60.4,,,,6.45
+Tom Edozie,Wolves,20,0(3),12,,,2.3,71.4,,0.3,,6.41
+Toti Gomes,Wolves,27,17(2),1428,,0.3,42.9,85.9,0.2,2.1,,6.41
+Yerson Mosquera,Wolves,25,24(3),2143,,0.4,29.5,80.5,0.1,0.8,,6.64

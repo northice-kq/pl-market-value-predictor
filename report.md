@@ -13,8 +13,8 @@ Predicting end-of-season Transfermarkt market values for Premier League outfield
 - [Future Work](#future-work)
 - [Conclusion](#conclusion)
 - [References](#references)
-- [Appendix](#appendix)
 - [Disclaimer](#disclaimer)
+- [Appendix](#appendix)
 
 ## Overview
 

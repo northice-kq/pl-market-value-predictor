@@ -1,4 +1,5 @@
 # Premier League Market Value Predictor
+
 > **Read the full report →** [`report.md`](report.md)
 > *Deep-dive into the methodology, findings, and limitations. The README below is a quick summary.*
 
@@ -13,8 +14,8 @@ Predicting end-of-season Transfermarkt market values for Premier League outfield
 - [Limitations](#limitations)
 - [Repository Structure](#repository-structure)
 - [Tech Stack](#tech-stack)
-- - [Appendix](#appendix)
-- [Disclaimer](#disclaimer)
+- [Disclaimer](#disclaimer) 
+- [Appendix](#appendix)
 
 
 ## Overview
@@ -53,15 +54,15 @@ Transfermarkt rewards players who are heavily involved in build-up play instead.
 
 ## Visualizations
 
-**What drives predictions** - momentum features dominate while age is negative conditional on value. Average Passes per game and Key Passes have a high impact.
+**What drives predictions** - momentum features dominate while age is negative conditional on value. Average passes per game and key passes carry the largest non-momentum weights.
 
 ![Ridge Coefficients](reports/figures/03_coefficients.png)
 
-**Predicted vs actual** - tight cluster along the diagonal perfect prediction, data scatter wider at both extremes.
+**Predicted vs actual** - tight cluster along the diagonal (perfect prediction), scatter widens at both extremes.
 
 ![Predicted vs Actual](reports/figures/01_pred_vs_actual.png)
 
-*More figures in [report.md → Visualizations](report.md#visualizations).*
+*More figures in [report.md #Visualizations](report.md#visualizations).*
 
 ## Data Sources
 
@@ -78,7 +79,7 @@ The dataset contains five seasons of data, 2,044 outfield player-seasons after f
 Excluded from the dataset:
 - Goalkeepers 
 - Players with under 200 minutes or under 3 appearances
-- Players missing `log1p_pre_mv`, `log1p_mid_mv`, or `mid_season_log1p_acceleration`
+- Players missing market value history for at least one of the three required checkpoints (pre-season, mid-season, or previous December)
 
 For the full methodology, see [Data and Methodology](report.md#data-and-methodology)
 
@@ -169,4 +170,4 @@ Raw scraped files are committed for reproducibility; redistribution is not inten
 
 ## Appendix
 
-Click [here](report.md#a-full-feature-list) for the full feature list
+See the [full 43-feature list](report.md#a-full-feature-list) in the report's Appendix

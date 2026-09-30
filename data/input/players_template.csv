@@ -1,5 +1,5 @@
 parameter,EXAMPLE 1,EXAMPLE 2,player_1,player_2
-player,Florian Wirtz,Granit Xhaka,you,
+player,Florian Wirtz,Granit Xhaka,You,
 team,Liverpool,Sunderland,,
 secondary_team,,,,
 season,2526,2526,"",
@@ -7,7 +7,7 @@ age,22,32,18,REQUIRED
 position (DF/MF/FW - comma-separated if multiple),MF,MF,FW,REQUIRED
 prev_mid_season_mv,140000000,,"",
 pre_season_mv,140000000,12000000,"€4,000,000",REQUIRED
-mid_season_mv,110000000,10000000,5500000,REQUIRED
+mid_season_mv,110000000,10000000,"€5,500,000",REQUIRED
 Playing Time_MP,33,34,30,
 Playing Time_Starts,27,32,16,
 Playing Time_Min,2378,2904,1125,

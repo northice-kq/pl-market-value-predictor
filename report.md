@@ -170,13 +170,13 @@ Predictions are converted back to euros via `expm1` for reporting and evaluation
 
 Three sources contribute to the final dataset:
 
-| Source                                                      | Contribution | Collection                                     |
-|-------------------------------------------------------------|--------------|------------------------------------------------|
-| [FBref]([#source-1---fbref](https://fbref.com/en/))         | Standard, shooting, misc, and keeper statistics | Scraped per season via `fbref_scrapper_all.py` |
-| [WhoScored](https://www.whoscored.com/)                     | Passing statistics and player ratings | Manually collected / `whoscored_scrapper.py`                        |
+| Source                                                    | Contribution | Collection                                     |
+|-----------------------------------------------------------|--------------|------------------------------------------------|
+| [FBref](https://fbref.com/en/)         | Standard, shooting, misc, and keeper statistics | Scraped per season via `fbref_scraper_all.py` |
+| [WhoScored](https://www.whoscored.com/)                   | Passing statistics and player ratings | Manually collected / `whoscored_scraper.py`                        |
 | [Transfermarkt via Kaggle](https://www.kaggle.com/datasets/davidcariboo/player-scores) | Market value history | Kaggle dataset (Cariboo, 2024)                 |
 
-*Note: There may be issues running `whoscored_scrapper.py`, where full data cannot be obtained at some time of the day. It is recommended to directly use files in `data/raw/whoscored`.*
+*Note: There may be issues running `whoscored_scraper.py`, where full data cannot be obtained at some time of the day. It is recommended to directly use files in `data/raw/whoscored`.*
 
 The steps of recreating the process are in [Reproducibility](#reproducibility).
 The final dataset spans **five seasons** (2021–22 to 2025–26) and contains **2,044 outfield player-seasons** after filtering.
@@ -438,7 +438,7 @@ Nine scripts transform raw scraped data into a single modelling dataset.
 | Stage | Script | Description | Input | Output |
 |-------|--------|-------------|-------|--------|
 | 1     | `process_mv.py` | Wide-format market value table | `prem_market_value.csv` | `processed_USABLE_mv.csv` |
-| 2     | `fbref_scrapper_all.py` | Raw FBref stats, per season and category | FBref (via `soccerdata`) | `fbref_{season}_{category}.csv` |
+| 2     | `fbref_scraper_all.py` | Raw FBref stats, per season and category | FBref (via `soccerdata`) | `fbref_{season}_{category}.csv` |
 | 3     | `whoscored_scraper.py` | Raw WhoScored passing stats, per season | WhoScored URLs | `whoscored_{season}_passing.csv` |
 | 4     | `01_fbref_merge.py` | Merged FBref integrated tables, per season | Stage 2 outputs | `fbref_{season}_integrated.csv` |
 | 5     | `02_merge_whoscored_to_fbref.py` | FBref + WhoScored combined, per season | Stages 3 + 4 | `players_stats_combined_{season}.csv` |
@@ -707,8 +707,8 @@ https://ssrn.com/abstract=2225728
 ## Disclaimer
 
 Scraping code is provided for educational purposes. 
-Users should respect the terms of service of each sites. 
-This repository does not redistribute scraped data.
+Users should respect the terms of service of each site. 
+Raw scraped files are committed for reproducibility; redistribution is not intended for commercial use.
 
 ## Appendix
 

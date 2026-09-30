@@ -14,6 +14,7 @@ Predicting end-of-season Transfermarkt market values for Premier League outfield
 - [Conclusion](#conclusion)
 - [References](#references)
 - [Appendix](#appendix)
+- [Disclaimer](#disclaimer)
 
 ## Overview
 
@@ -169,11 +170,11 @@ Predictions are converted back to euros via `expm1` for reporting and evaluation
 
 Three sources contribute to the final dataset:
 
-| Source                                           | Contribution | Collection                                     |
-|--------------------------------------------------|--------------|------------------------------------------------|
-| [FBref](#source-1---fbref)                       | Standard, shooting, misc, and keeper statistics | Scraped per season via `fbref_scrapper_all.py` |
-| [WhoScored](#source-2-whoscored)                 | Passing statistics and player ratings | Manually collected / `whoscored_scrapper.py`                        |
-| [Transfermarkt](#source-3---transfermarkt-via-kaggle) | Market value history | Kaggle dataset (Cariboo, 2024)                 |
+| Source                                                      | Contribution | Collection                                     |
+|-------------------------------------------------------------|--------------|------------------------------------------------|
+| [FBref]([#source-1---fbref](https://fbref.com/en/))         | Standard, shooting, misc, and keeper statistics | Scraped per season via `fbref_scrapper_all.py` |
+| [WhoScored](https://www.whoscored.com/)                     | Passing statistics and player ratings | Manually collected / `whoscored_scrapper.py`                        |
+| [Transfermarkt via Kaggle](https://www.kaggle.com/datasets/davidcariboo/player-scores) | Market value history | Kaggle dataset (Cariboo, 2024)                 |
 
 *Note: There may be issues running `whoscored_scrapper.py`, where full data cannot be obtained at some time of the day. It is recommended to directly use files in `data/raw/whoscored`.*
 
@@ -181,7 +182,7 @@ The steps of recreating the process are in [Reproducibility](#reproducibility).
 The final dataset spans **five seasons** (2021–22 to 2025–26) and contains **2,044 outfield player-seasons** after filtering.
 
 
-### Source 1 - FBref
+### Source 1 - [FBref](https://fbref.com/en/)
 
 FBref supplied the majority of performance statistics: standard stats (goals, assists, playing time), shooting stats (shots, shots on target, conversion rates), miscellaneous stats (cards, fouls, offsides, interceptions, tackles), and a small number of keeper statistics.
 
@@ -200,7 +201,7 @@ Rows with empty player names were dropped.
 
 Each season's four tables were then merged to produce one row per player-season.
 
-### Source 2 - WhoScored
+### Source 2 - [WhoScored](https://www.whoscored.com/)
 
 WhoScored supplied **passing statistics** and **player ratings**, neither of which is available in FBref. The specific metrics collected were:
 
@@ -220,7 +221,7 @@ This is a reproducibility limitation: the raw WhoScored data is committed in the
 
 **Processing.** Similar to that in FBref. Only the above passing data is passed during combining with FBref. The position data follows FBref's `FW`, `MF`, `DF`, `GK` instead.
 
-### Source 3 - Transfermarkt via Kaggle
+### Source 3 - [Transfermarkt via Kaggle](https://www.kaggle.com/datasets/davidcariboo/player-scores)
 
 Transfermarkt supplied the **market value history**, a series of dated valuations for each player, spanning from before the 2021–22 season through the 2025–26 season.
 
@@ -422,6 +423,7 @@ RMSE on the log scale rewards percentage-accurate predictions; RMSE in euros is 
 ## Reproducibility
 
 The pipeline is implemented as a sequence of scripts under `src/`, each with a defined input and output. 
+It runs in two halves: **preprocessing** (raw scraped files → final dataset) and **modelling** (dataset → trained model → predictions).
 Scripts can be re-run independently as long as their inputs exist, none of them mutate their inputs, and all outputs are given the same upstream data. 
 This section documents the stages in dependency order.
 
@@ -430,75 +432,93 @@ Before running the pipeline, install dependencies:
 pip install -r requirements.txt
 ```
 
+### Preprocessing (`src/raw_processing`, `src/scraping`, `src/preprocessing/`)
+Nine scripts transform raw scraped data into a single modelling dataset.
 
-The pipeline has two sections:
+| Stage | Script | Description | Input | Output |
+|-------|--------|-------------|-------|--------|
+| 1     | `process_mv.py` | Wide-format market value table | `prem_market_value.csv` | `processed_USABLE_mv.csv` |
+| 2     | `fbref_scrapper_all.py` | Raw FBref stats, per season and category | FBref (via `soccerdata`) | `fbref_{season}_{category}.csv` |
+| 3     | `whoscored_scraper.py` | Raw WhoScored passing stats, per season | WhoScored URLs | `whoscored_{season}_passing.csv` |
+| 4     | `01_fbref_merge.py` | Merged FBref integrated tables, per season | Stage 2 outputs | `fbref_{season}_integrated.csv` |
+| 5     | `02_merge_whoscored_to_fbref.py` | FBref + WhoScored combined, per season | Stages 3 + 4 | `players_stats_combined_{season}.csv` |
+| 6     | `03_aggregate_player_season.py` | One row per player-season (mainly loanees, winter transfers) | Stage 5 | `players_stats_aggregated_{season}.csv` |
+| 7     | `04_add_player_id.py` | Attach `player_id` to each row | Stage 6 + ID master file | `id_data_{season}.csv` |
+| 8     | `05_merge_mv.py` | Player-season + market value raw & acceleration | Stages 1 + 7 | `merged_data_{season}.csv` |
+| 9     | `FINAL_combine.py` | Final dataset, all seasons | Stage 8 (all seasons) | `final_data_v1.csv` |
 
-`src/preprocessing`:
-The first half transforms raw scraped files into the final modelling dataset. It comprises nine scripts:
-``` 
-process_mv.py (independent) # Wide-format market value table
-fbref_scrapper_all.py (independent) # Raw FBref stats, per season and category
-whoscored_scraper.py (independent) # Raw WhoScored passing stats, per season
 
-↓
-
-01_fbref_merge.py 
-# Merged FBref integrated tables, per season
-↓
-02_merge_whoscored_to_fbref.py 
-# FBref + WhoScored combined, per season
-↓
-03_aggregate_player_season.py 
-# One row per player-season (mainly loanees, winter transfers)
-↓
-04_add_player_id.py 
-# player_id attached
-↓
-05_merge_mv.py
-# player-season + market value raw & acceleration
-↓
-FINAL_combine.py # Final dataset, all seasons
-```
 **Dependency notes**
 - The first three files are independent and can run in parallel
-- Everything downstream of 01_fbref_merge.py is a linear chain
+- The first three files support skip-if-exists behaviour, partial reruns only fetch missing files
+- Everything from `01_fbref_merge.py` onward is a linear chain
 
 **Known limitations.**
-- `whoscored_scraper.py` is inconsistent at the time of the day. *It is advised to use files in `data/raw/whoscored`*
+- `whoscored_scraper.py` is inconsistent depending on the time of day. *It is advised to use files in `data/raw/whoscored`*
 - Player name matching (`02_merge_whoscored_to_fbref.py`, `04_add_player_id.py`) required a small number of manual corrections, stored in `player_name_mappings.txt`.
 
-`src/ml`:
-The second half includes modelling and evaluation, from the final dataset to predictions, metrics, and reports. 
-Here are the flow of eight scripts: 
-```
-01_prepare.py
-# Filter GKs, engineer features (age², log1p momentum, position flags), impute missing values
-↓
-02_split.py
-#Season-based train / validation / test split
-↓
-03_ridge.py
-#Train Ridge with alpha tuned on validation
-↓
-05_evaluate_ridge.py
-# Test-set metrics + worst-prediction analysis
-↓
-06_baseline_compare.py
-# Compare Ridge against three naive baselines
-↓
-07_PREDICT.py
-# Batch prediction from a filled CSV template
-↓
-08_undervalued_overvalued.py
-# Rank real life players by model-vs-market gap
-↓
-09_graphs.py
-# Create graphs related to the model
+### Modelling (`src/ml/`)
 
-```
+Eight scripts turn the final dataset into a trained model, evaluation metrics, and predictions.
+
+| Script | Description |
+|--------|-------------|
+| `01_prepare.py` | Filter GKs, engineer features (age², log1p momentum, position flags), impute missing values |
+| `02_split.py` | Season-based train / validation / test split |
+| `03_ridge.py` | Train Ridge with alpha tuned on validation |
+| `05_evaluate_ridge.py` | Test-set metrics + worst-prediction analysis |
+| `06_baseline_compare.py` | Compare Ridge against three naive baselines |
+| `07_PREDICT.py` | Batch prediction from a filled CSV template |
+| `08_undervalued_overvalued.py` | Rank real players by model-vs-market gap |
+| `09_graphs.py` | Create graphs related to the model |
+
 **Dependency notes**
-- Every file is a linear chain
-- `04` is originally reserved for tree-based models, thus omitted
+- The chain is linear from `01` to `03`, then the rest of the files can run independently only after `03`
+- `04` is originally reserved for tree-based models, thus omitted for potential future work
+
+### Predict a Player's Market Value
+
+The prediction tool takes a filled CSV template (`data/input/players_template.csv`) and returns a market value estimate for each player.
+
+#### Step 1: Fill the template
+Open `data/input/players_template.csv`. Each column after `parameter` is one player. Add columns for additional players.
+
+Required fields (row is skipped if any are missing):
+- `age` - player age 
+- `position` - `DF`, `MF`, `FW`, or a comma-separated combination (e.g., `MF,DF`)
+- `pre_season_mv` - market value at the June before the season in euros 
+- `mid_season_mv` - market value at the December update in euros
+
+Optional fields:
+- `prev_mid_season_mv` - previous December's value. If provided, the script computes value acceleration. If omitted, acceleration defaults to 0
+- Any performance statistic (e.g., `Performance_Gls`, `Rating`, `KeyP`). Unfilled stats default to the training median
+- Per-90 stats are derived automatically from raw totals and minutes when possible
+
+#### Step 2: Run the prediction script
+
+```bash
+python src/ml/07_PREDICT.py
+```
+
+The script:
+
+- Parses and validates every row
+- Computes derived features (`age_2`, `log1p` momentum, acceleration)
+- Flags inputs that fall outside the training distribution
+- Prints a summary and saves results to `reports/model_output/predictions.csv`
+
+#### Step 3: Read the output
+
+1. **Terminal summary**. Coloured prediction table with predicted values, change vs mid-season value, and percentage change
+2. A CSV file `reports/model_output/predictions.csv`, containing one row per player with actual vs. predicted comparisons
+
+#### Input validation
+| Layer | Behaviour |
+|-------|-----------|
+| **Required fields** | Skips the row with a clear message if any of `age`, `position`, `pre_season_mv`, or `mid_season_mv` are missing. |
+| **Hard limits** | Rejects inputs outside plausible ranges: age 15–45, value €50k–€300M, position must contain at least one of `DF`/`MF`/`FW`. |
+| **Soft warnings** | Flags inputs in the top/bottom 5% of the training distribution as extrapolations, but still runs the prediction and prints a warning. |
+
 
 ## Limitations
 
@@ -669,15 +689,6 @@ These limitations reflect the boundary between what statistics can capture and w
 
 The full pipeline, from scraping to prediction, is reproducible and public.
 
-
-
-
-
-
-
-
-
-
 ## References
 
 Cariboo, D. (2024). *Football Data from Transfermarkt* [Data set]. Kaggle.
@@ -692,6 +703,12 @@ Transfermarkt (2025). *Market value definition*. https://www.transfermarkt.com/n
 Vecer, J. (2018). Crossing in Soccer has a Strong Negative Impact on Scoring:
 Evidence from the English Premier League. SSRN Electronic Journal.
 https://ssrn.com/abstract=2225728
+
+## Disclaimer
+
+Scraping code is provided for educational purposes. 
+Users should respect the terms of service of each sites. 
+This repository does not redistribute scraped data.
 
 ## Appendix
 

@@ -9,6 +9,17 @@ import time
 import re
 import os
 
+SEASON_URLS = {
+    '2021-2022': 'https://www.whoscored.com/regions/252/tournaments/2/seasons/8618/stages/19793/playerstatistics/england-premier-league-2021-2022',
+    '2022-2023': 'https://www.whoscored.com/regions/252/tournaments/2/seasons/9075/stages/20934/playerstatistics/england-premier-league-2022-2023',
+    '2023-2024': 'https://www.whoscored.com/regions/252/tournaments/2/seasons/9618/stages/22076/playerstatistics/england-premier-league-2023-2024',
+    '2024-2025': 'https://www.whoscored.com/regions/252/tournaments/2/seasons/10316/stages/23400/playerstatistics/england-premier-league-2024-2025',
+    '2025-2026': 'https://www.whoscored.com/regions/252/tournaments/2/seasons/10743/stages/24533/playerstatistics/england-premier-league-2025-2026',
+}
+
+script_dir = os.path.dirname(os.path.abspath(__file__))
+project_root = os.path.dirname(os.path.dirname(script_dir))
+OUTPUT_DIR = os.path.join(project_root, 'data', 'raw', 'whoscored')
 
 def setup_driver(headless=False):
     options = webdriver.ChromeOptions()
@@ -22,7 +33,9 @@ def setup_driver(headless=False):
     options.add_argument('--disable-gpu')
     options.add_argument('--window-size=1920,1080')
     options.add_argument(
-        'user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36')
+        'user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 '
+        '(KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
+    )
     options.add_experimental_option("excludeSwitches", ["enable-automation"])
     options.add_experimental_option('useAutomationExtension', False)
 
@@ -82,7 +95,7 @@ def scroll_to_load_all_rows(driver, max_scrolls=50):
             if elem:
                 scrollable = elem
                 break
-        except:
+        except Exception:
             continue
 
     if scrollable is None:
@@ -92,7 +105,7 @@ def scroll_to_load_all_rows(driver, max_scrolls=50):
     last_height = driver.execute_script("return arguments[0].scrollHeight", scrollable)
     scrolls_without_change = 0
 
-    for i in range(max_scrolls):
+    for _ in range(max_scrolls):
         # Scroll to bottom of the container
         driver.execute_script("arguments[0].scrollTop = arguments[0].scrollHeight", scrollable)
         time.sleep(2)  # Wait for lazy loading
@@ -137,7 +150,7 @@ def scrape_passing_stats(url, headless=False):
                 print("Clicked Passing tab")
             except Exception as e:
                 print(f"Could not click Passing tab: {e}")
-                print("   Trying alternative: looking for tab with data-stat-type='passing'")
+                print("Trying alternative: looking for tab with data-stat-type='passing'")
                 try:
                     passing_tab = driver.find_element(By.CSS_SELECTOR, "[data-stat-type='passing']")
                     passing_tab.click()
@@ -169,7 +182,7 @@ def scrape_passing_stats(url, headless=False):
                             'Player': player_name,
                             'Team': team,
                             'Age': age,
-                            'Position': position
+                            'Position': position,
                         }
                         for i, cell in enumerate(cells[2:], start=2):
                             if i < len(headers) and headers[i]:
@@ -203,21 +216,33 @@ def scrape_passing_stats(url, headless=False):
         driver.quit()
 
 
+def main():
+    os.makedirs(OUTPUT_DIR, exist_ok=True)
+
+    for season, url in SEASON_URLS.items():
+        output_file = os.path.join(OUTPUT_DIR, f'whoscored_{season}_passing.csv')
+
+        if os.path.exists(output_file):
+            print(f"\nSkipping {season} — file already exists: {output_file}")
+            continue
+
+        print(f"\n{'=' * 60}")
+        print(f"Season: {season}")
+        print(f"{'=' * 60}")
+
+        df = scrape_passing_stats(url, headless=False)
+
+        if df is not None and len(df) > 0:
+            df.to_csv(output_file, index=False)
+            print(f"Saved to {output_file}")
+            print(f"Rows: {len(df)}")
+        else:
+            print(f"Failed to scrape {season}")
+
+        time.sleep(5)
+
+    print("\nAll seasons processed.")
+
+
 if __name__ == "__main__":
-    # URL for 2025-2026 Premier League passing stats
-    url = 'https://www.whoscored.com/regions/252/tournaments/2/seasons/10743/stages/24533/playerstatistics/england-premier-league-2025-2026'
-
-    # Set headless=False to see the browser window (recommended)
-    df = scrape_passing_stats(url, headless=False)
-
-    if df is not None:
-        os.makedirs('data/raw/whoscored', exist_ok=True)
-        filename = 'data/raw/whoscored/whoscored_2025-2026_passing.csv'
-        df.to_csv(filename, index=False)
-        print(f"Saved to {filename}")
-
-        # Display sample
-        print("\n First 5 rows:")
-        print(df.head())
-
-        print("\nColumns:", list(df.columns))
+    main()

@@ -43,7 +43,7 @@ pipeline = Pipeline([
 ])
 
 # test
-alphas = [0.01, 0.1, 1.0, 10.0, 100.0, 300.0, 500.0]
+alphas = [0.01, 0.1, 1.0, 10.0, 100.0, 1000.0]
 best_alpha = None
 best_val_rmse = float('inf')
 
@@ -53,12 +53,12 @@ for alpha in alphas:
     pipeline.fit(X_train_f, Y_train)
     preds = pipeline.predict(X_val_f)
     rmse = np.sqrt(mean_squared_error(Y_val, preds))
-    print(f"  alpha={alpha:<6}  val RMSE (log): {rmse:.4f}")
+    print(f"  alpha={alpha:<6}  val RMSE (log): {rmse:.5f}")
     if rmse < best_val_rmse:
         best_val_rmse = rmse
         best_alpha = alpha
 
-print(f"\nBest alpha: {best_alpha} (val RMSE log: {best_val_rmse:.4f})")
+print(f"\nBest alpha: {best_alpha} (val RMSE log: {best_val_rmse:.5f})")
 
 # refit model w best fit alpha
 pipeline.set_params(ridge__alpha=best_alpha)

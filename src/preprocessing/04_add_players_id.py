@@ -6,7 +6,7 @@ import json
 
 script_dir = os.path.dirname(os.path.abspath(__file__))
 project_root = os.path.dirname(os.path.dirname(script_dir))
-ID_FILE = os.path.join(project_root, 'data', 'raw_transfer_data', 'prem_player_id.csv')
+ID_FILE = os.path.join(project_root, 'data', 'raw', 'raw_transfer_data', 'prem_player_id.csv')
 MANUAL_MAP_FILE = os.path.join(project_root, 'data', 'raw', 'raw_transfer_data', 'player_name_mappings.txt')
 INPUT_FOLDER = os.path.join(project_root, 'data', 'combined')
 OUTPUT_FOLDER = os.path.join(project_root, 'data', 'id_data')
@@ -129,7 +129,7 @@ def main():
         df = df[cols]
 
         df.to_csv(output_file, index=False)
-        print(f"💾 Saved to {output_file}")
+        print(f"Saved to {output_file}")
 
     print("\nAll seasons processed!")
 

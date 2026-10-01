@@ -12,6 +12,7 @@ MV_COLS = ['pre_season_mv', 'mid_season_mv', 'target_mv', 'mid_season_accelerati
 
 def main():
     print("Combining merged data into final dataset...")
+    os.makedirs(OUTPUT_FOLDER, exist_ok=True)
     df_list = []
 
     for season in SEASONS:

@@ -92,28 +92,28 @@ pip install -r requirements.txt
 
 2. Run the preprocessing pipeline (raw data → final dataset)
 ```bash
-python src/raw_processing/process_mv.py
-python src/scraping/fbref_scraper_all.py
-python src/scraping/whoscored_scraper.py
-python src/preprocessing/01_fbref_merge.py
-python src/preprocessing/02_merge_whoscored_to_fbref.py
-python src/preprocessing/03_aggregate_player_season.py
-python src/preprocessing/04_add_player_id.py
-python src/preprocessing/05_merge_mv.py
-python src/preprocessing/FINAL_combine.py 
+py src/raw_processing/process_mv.py
+py src/scraping/fbref_scraper_all.py
+py src/scraping/whoscored_scraper.py
+py src/preprocessing/01_fbref_merge.py
+py src/preprocessing/02_merge_whoscored_to_fbref.py
+py src/preprocessing/03_aggregate_player_season.py
+py src/preprocessing/04_add_players_id.py
+py src/preprocessing/05_merge_mv.py
+py src/preprocessing/FINAL_combine.py 
 ```
 
 3. Run the ML pipeline (dataset → trained model)
 ```bash
-python src/ml/01_prepare.py
-python src/ml/02_split.py
-python src/ml/03_ridge.py
+py src/ml/01_prepare.py
+py src/ml/02_split.py
+py src/ml/03_ridge.py
 
 ```
 
 4. To predict a player, fill `data/input/players_template.csv` with the required fields (age, position, pre-season value, mid-season value), and any optional stats, then run
 ```bash
-python src/ml/07_PREDICT.py
+py src/ml/07_PREDICT.py
 ```
 Predictions are saved to `reports/model_output/predictions.csv`.
 

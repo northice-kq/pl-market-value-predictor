@@ -497,7 +497,7 @@ Optional fields:
 #### Step 2: Run the prediction script
 
 ```bash
-python src/ml/07_PREDICT.py
+py src/ml/07_PREDICT.py
 ```
 
 The script:

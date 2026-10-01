@@ -37,17 +37,15 @@ DERIVED_COLS = {
 }
 
 
-def aggregate_season(input_file, output_file, fill_missing):
+def aggregate_season(input_file, output_file):
     df = pd.read_csv(input_file)
-
-    if fill_missing:
-        # replace empty strings with NaN
-        df = df.replace(r'^\s*$', pd.NA, regex=True)
-        # convert and fill NaN with 0
-        numeric_cols = SUM_COLS + WEIGHTED_AVG_COLS + ['Playing Time_Min']
-        for col in numeric_cols:
-            if col in df.columns:
-                df[col] = pd.to_numeric(df[col], errors='coerce').fillna(0)
+    # replace empty strings with NaN
+    df = df.replace(r'^\s*$', pd.NA, regex=True)
+    # convert and fill NaN with 0
+    numeric_cols = SUM_COLS + WEIGHTED_AVG_COLS + ['Playing Time_Min']
+    for col in numeric_cols:
+        if col in df.columns:
+            df[col] = pd.to_numeric(df[col], errors='coerce').fillna(0)
 
     df['Playing Time_Min'] = pd.to_numeric(df['Playing Time_Min'], errors='coerce')
 
@@ -160,13 +158,12 @@ def aggregate_season(input_file, output_file, fill_missing):
 
 
 def main():
-    fill_choice = input("Do you want to fill missing WhoScored values (NaN) with 0? (Y/N): ").strip().upper()
-    fill_missing = fill_choice == 'Y'
+    print("Missing WhoScored values will be filled with 0.")
     for season in SEASONS:
         input_file = os.path.join(INPUT_FOLDER, f'players_stats_combined_{season}.csv')
         output_file = os.path.join(OUTPUT_FOLDER, f'players_stats_aggregated_{season}.csv')
         if os.path.exists(input_file):
-            aggregate_season(input_file, output_file, fill_missing)
+            aggregate_season(input_file, output_file)
         else:
             print(f"Input file not found: {input_file}")
 

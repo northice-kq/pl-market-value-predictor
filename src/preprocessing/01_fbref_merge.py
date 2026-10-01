@@ -6,13 +6,13 @@ project_root = os.path.dirname(os.path.dirname(script_dir))  # up 2 levels (so i
 INPUT_FOLDER = os.path.join(project_root, 'data', 'raw', 'fbref')
 OUTPUT_FOLDER = os.path.join(project_root, 'data', 'combined')
 
-# Debug: list all files in INPUT_FOLDER
-print(f"📁 Looking for files in: {INPUT_FOLDER}")
+# list all files in INPUT_FOLDER
+print(f"Looking for files in: {INPUT_FOLDER}")
 if os.path.exists(INPUT_FOLDER):
     all_files = os.listdir(INPUT_FOLDER)
-    print(f"📄 Files found: {all_files}")
+    print(f"Files found: {all_files}")
 else:
-    print(f"❌ Folder does not exist: {INPUT_FOLDER}")
+    print(f"Folder does not exist: {INPUT_FOLDER}")
 
 SEASONS = ['2021-2022', '2022-2023', '2023-2024', '2024-2025', '2025-2026']
 
@@ -94,12 +94,12 @@ def integrate_season(season):
 
     os.makedirs(OUTPUT_FOLDER, exist_ok=True) # Ensure output directory exists
     df_integrated.to_csv(out_path, index=False)
-    print(f"✅ Saved integrated file: {out_path} (columns: {len(df_integrated.columns)})")
+    print(f"Saved integrated file: {out_path} (columns: {len(df_integrated.columns)})")
 
 def main():
     for season in SEASONS:
         integrate_season(season)
-    print("\n🎉 All seasons integrated! Files are in 'data/combined/'.")
+    print("\nAll seasons integrated! Files are in 'data/combined/'.")
 
 if __name__ == "__main__":
     main()

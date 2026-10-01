@@ -14,7 +14,7 @@ SEASONS = ['2021-2022', '2022-2023', '2023-2024', '2024-2025', '2025-2026']
 WHOSCORED_COLS = ['KeyP', 'AvgP', 'PS%', 'LongB', 'ThrB', 'Rating']
 
 
-def merge_season(season, fill_missing):
+def merge_season(season):
     """Merge FBref integrated data with WhoScored passing stats for one season."""
     print(f"\nProcessing {season}...")
 
@@ -75,24 +75,25 @@ def merge_season(season, fill_missing):
     # check if any of the whoScored columns are NaN, and it means no match
     merged_whoscored_cols = [col for col in whoscored_cols_present if col in df_merged.columns]
     if merged_whoscored_cols:
-        missing_mask = df_merged[merged_whoscored_cols].isna().all(axis=1) | (df_merged[merged_whoscored_cols] == '').all(axis=1) # Rows where all whoscored columns are missing (NaN or empty string)
+        missing_mask = df_merged[merged_whoscored_cols].isna().all(axis=1)
         missing_players = df_merged[missing_mask]['player'].tolist()
     else:
         missing_players = df_merged['player'].tolist()
-        # Write in to leftout file
-        with open(leftout_path, 'w', encoding='utf-8') as f:
-            if missing_players: # bool value
-                f.write(f"Players from FBref not found in WhoScored for {season}:\n")
-                f.write("=" * 60 + "\n")
-                for p in missing_players:
-                    f.write(f"{p}\n")
-                print(f"{len(missing_players)} players not found, logged to {leftout_path}")
-            else:
-                f.write(f"All players from FBref were found in WhoScored for {season}.\n")
-                print(f"All players matched for {season}")
 
-    if fill_missing and merged_whoscored_cols:
-        # replace NaN && empty strings with 0, becuase WhoScored use it as 0
+    # Only write the file if there ARE missing players
+    if missing_players:
+        os.makedirs(OUTPUT_FOLDER, exist_ok=True)
+        with open(leftout_path, 'w', encoding='utf-8') as f:
+            f.write(f"Players from FBref not found in WhoScored for {season}:\n")
+            f.write("=" * 60 + "\n")
+            for p in missing_players:
+                f.write(f"{p}\n")
+        print(f"{len(missing_players)} players not found, logged to {leftout_path}")
+    else:
+        print(f"All players matched for {season}")
+
+    if merged_whoscored_cols:
+        # replace NaN & empty strings with 0, becuase WhoScored use it as 0
         for col in merged_whoscored_cols:
             df_merged[col] = df_merged[col].fillna(0).replace('', 0)
         print(f"Filled missing WhoScored values with 0 for {season}")
@@ -109,10 +110,10 @@ def merge_season(season, fill_missing):
 def main():
     print("Merging FBref integrated data with WhoScored passing stats...")
     print("=" * 60)
-    fill_choice = input("Do you want to fill missing WhoScored values (NaN) with 0? (Y/N): ").strip().upper()
-    fill_missing = fill_choice == 'Y'
+    print("Missing WhoScored values will be filled with 0.")
+
     for season in SEASONS:
-        merge_season(season, fill_missing)
+        merge_season(season)
     print("\nAll seasons processed! Files are in 'data/combined/'. Check 'leftout' files for unmatched names")
 
 

@@ -9,7 +9,7 @@ Predicting end-of-season Transfermarkt market values for Premier League outfield
 - [Data and Methodology](#data-and-methodology)
 - [Reproducibility](#reproducibility)
 - [Limitations](#limitations)
-- [Interpretation: Two Extreme Cases](#interpretation-two-extreme-cases)
+- [Interpretation: Three Extreme Cases](#interpretation-three-extreme-cases)
 - [Future Work](#future-work)
 - [Conclusion](#conclusion)
 - [References](#references)
@@ -27,73 +27,72 @@ Many of the factors Transfermarkt lists, such as reputation, injury susceptibili
 The model includes what is observable: appearance, shooting, passing, defensive and various miscellaneous stats, plus the player's own value trajectory. 
 It is trained on five seasons *(2021–22 to 2025–26)* using scraped FBref and WhoScored data, and Kaggle Transfermarkt data by [David Cariboo](https://www.kaggle.com/datasets/davidcariboo/player-scores), with a season-based train/validation/test split and a Ridge regression baseline.
 
-On the held-out 2025–26 season, the model achieves **R² = 0.920** with a median relative error of 14.9%, a 9.59% RMSE improvement over the strongest naive baseline (predict = mid‑season value). 
-The results also reveal structural biases worth naming. The model systematically under-predicts the top of the market, and errors on very young players are larger and less reliable than those on established players.
+On the held-out 2025–26 season, the model achieves **R² = 0.942** with a median relative error of 11.7%, a 22.82% RMSE improvement over the strongest naive baseline (predict = mid‑season value). 
+The results also reveal a structural bias worth naming. 
+The model underpredicts the top of the market. 
+All 15 of the worst test errors are underpredictions, concentrated in the 2025-26 season. 
+It also overpredicts youth. The 15 largest upward gaps are all aged 25 or under, with a median age of 22.
+Errors on very young players (under 21) are also larger and less reliable than on established players.
 These biases are consistent with what the model cannot see, namely the reputation, development potential, and transfer-context factors that Transfermarkt's community considers but performance statistics do not capture.
 
 ## Key Findings
 
 ### 1. Prior market value is the single strongest predictor
 
-The two market value momentum features `log1p_mid_mv` *(+0.53)* and `log1p_pre_mv` *(+0.26)* together carry more coefficient weight than all 41 performance statistics combined. 
+The two momentum features carry more coefficient weight than all 41  performance statistics combined. 
+The signal is now almost entirely `log1p_mid_mv` *(+0.824)*. `log1p_pre_mv` has collapsed to +0.014 because the mid-season checkpoint already reflects everything the pre-season value knew.
 Market value is highly autocorrelated, and therefore the best predictor of a player's value in June is their value in December, which in turn reflects their value the previous June.
-
-**Why it matters:** Any model that ignores prior value will lose most of its signal. The interesting question is not *"can we predict market value?"* but *"how much can performance stats add beyond momentum?"*, and the answer is a 9.59% RMSE improvement.
+As such, any model that ignores prior value will lose most of its signal. The interesting question is not *"can we predict market value?"* but *"how much can performance stats add beyond momentum?"*, and the answer is a 22.82% RMSE improvement.
 
 ### 2. Age effect is subtler than it appears
 
-At first glance, the coefficients for `age` *(−0.14)* and `age²` *(−0.15)* seem to contradict the inverted-U relationship between age and market value, which peaks at 22 to 27 (more on [Transfermarkt](https://www.transfermarkt.com/-euro-6-98-billion-tops-list-which-age-has-the-highest-collection-of-valuable-players-/view/news/457939)). 
+At first glance, the coefficients for `age` *(−0.071)* and `age²` *(−0.172)* seem to contradict the inverted-U relationship between age and market value, which peaks at 22 to 27 (more on [Transfermarkt](https://www.transfermarkt.com/-euro-6-98-billion-tops-list-which-age-has-the-highest-collection-of-valuable-players-/view/news/457939)). 
 The contradiction has a clean explanation: `log1p_mid_mv` already encodes the market's full current assessment, **including the age premium**, the age terms capture only the **residual** effect **conditional on current value**, 
-i.e., given two players with identical current value, the older player is expected to depreciate more at the next update, and the decline accelerates with age. 
+i.e., given two players with identical current value, the older player depreciates more, and the depreciation accelerates sharply past a threshold age.
 
-**Why it matters:** This is a textbook example of how controlling for a strong covariate changes the interpretation of an independent variable. Reading coefficients without understanding what is being held constant leads to the wrong conclusion.
+### 3. The market penalises attempt volume over completed actions
 
-### 3. Market penalises traditional crossers
+Four of the largest negative coefficients (after age) belong to **attempt** actions, recorded regardless of outcome: 
+`Standard_Sh` _(−0.068)_,`Performance_Int` *(−0.032)*, `Performance_Crs` *(−0.021)*, and `LongB` *(−0.011)*.
+By contrast, stats only recorded on success are positive: `AvgP` *(+0.057)*, `KeyP` *(+0.009)*, `Performance_TklW` *(+0.008)*. 
+For crosses specifically, this aligns with Vecer (2018), who found that open crosses convert at roughly 1.1%, which is about half the rate of a final-third entry.
+So, crosses were estimated to have a statistically significant negative effect on team-level goal production.
+The mechanism Vecer (2018) proposes generalises that **attempt actions with poor conversion displace better options**, and the market appears to price that displacement.
 
-`Performance_Crs` carries a **negative** coefficient *(−0.032)* in the model, third in weight among negative coefficients after `age` and `age²`.
-Holding market value constant, players who cross more are valued ***less*** at the next update.  
+### 4. Average passes is the top raw performance statistic
 
-This finding aligns with a documented body of football analytics. 
-Vecer (2018) analysed ten seasons of Premier League data, found that open crosses have a **statistically significant negative effect on goals** at team level.
-The Poisson regression coefficient for open crosses in the EPL was −0.017, and the effect was stronger for Big 6, they were all estimated to lose up to a goal per season from their crossing volume.
-
-The mechanism proposed by Vecer (2018) suggested a cross commits the attacking team to a high-variance, low-conversion action. 
-Only ~20% of open crosses are "good crosses", and even those require ~18.9 crosses to produce a single goal.
-
-**Why it matters:** The model has independently recovered an effect that football analytics has documented for close to a decade. 
-The negative coefficient on `Performance_Crs` is the market re-pricing an efficient stylisation, that has been recognized by the analytics community. 
-Cross-heavy wingers and full-backs are undervalued compared to players of equal value who make their contributions via alternative means, such as passing.
-
-### 4. Passing volume matters more than goals and assists
-
-The largest performance statistics coefficient is `AvgP` *(+0.106)*, above goals, assist, and shooting volume. 
-Transfermarkt valuations reward players who are heavily involved in build-up play, particularly midfielders. 
-Shooting stats cluster around *+0.01* to *+0.03*, just a third as influential.
-
-**Why it matters:** Popular narratives emphasise goal-scoring as the primary driver of value. The model disagrees. 
-Once prior value is controlled for, involvement and distribution carry more marginal signal than finishing.
+Among raw pitch-based performance features, excluding composite metrics like WhoScored `Rating` and context features like playing time, 
+`AvgP` (average passes per game, *+0.057*) carries the largest coefficient, followed by `Standard_Sh/90` (+0.046) and `PS%` (+0.024). 
+Popular narratives emphasise goal-scoring as the primary driver of value. The model disagrees. 
+Once prior value is controlled for, Transfermarkt valuations reward players who are heavily involved in build-up play
 
 ### 5. The model systematically underpredicts the top of the market
 
-All 15 of the worst test predictions occur in the 2025–26 season, and 14 of 15 are **underpredictions**.
+All 15 of the worst test errors are under-predictions. 
+The largest gaps: Kroupi (€70M → €34M predicted), Tonali (€80M → €53M), Isak (€85M → €60M). 
 The [residual plot](#figure-2---residuals-vs-predicted-value) shows a widening funnel with a slight upward tilt, indicating that errors grow with predicted value.
-The pattern is consistent with temporal drift. The 2025–26 market inflated faster than the historical trend the model learned in 2021–2025.
-It is also believed reputation plays an important role which this model unfortunately could not capture, as the underpredictions include high profile players, in the likes of *Erling Haaland*, *Alexander Isak*, *Declan Rice*. 
+The pattern is consistent with temporal drift.
+ The 2025–26 market inflated faster than the historical trend the model learned in 2021–2025.
+It is also believed reputation plays an important role which this model unfortunately could not capture, as the underpredictions include high profile players, in the likes of, *Alexander Isak*, *Declan Rice*, *Rayan Cherki*
+This is a structural limitation, not a modelling bug. Random Forest or XGBoost will not fix it
 
-**Why it matters:** This is a structural limitation, not a modelling bug. Random Forest or XGBoost will not fix it
+### 6. The model over-values youth relative to the market
 
-### 6. Position labels become irrelevant after controlling for value
+The model’s top 15 most undervalued players are all 25 or younger, with a median age of 22.
+Players like Alejandro Garnacho (21), Mathys Tel (20), Tyler Dibling (19), and Charalampos Kostoulas (18) are all priced higher by the model than by Transfermarkt.
+
+The pattern is a direct consequence of the age coefficients: `age` (−0.071) and `age_2` (−0.172) together produce a curve that rises steeply as age falls. 
+But the market considers factors the model cannot see, like development risk, small sample size, and unproven performance at the highest level.
+
+This is the mirror image of [Finding #5](#5-the-model-systematically-underpredicts-the-top-of-the-market), suggesting the age curve is too aggressive in both directions.
+
+### 7. Position labels become irrelevant after controlling for value
 
 The three position flags (`is_DF`, `is_MF`, `is_FW`) all have coefficients within ±0.01 of zero. 
 Once a player's current value and performance stats are in the model, position adds essentially no predictive signal.
-
-**Why it matters:** It clarifies what the model is learning. It is not learning *"forwards are worth more."* It is learning *"given this player's current value and stats, what happens next?"*. Position has already been reflected in the stats.
-
-### 7. WhoScored rating adds no incremental signal
-
-The `Rating` coefficient is −0.003, effectively zero. WhoScored's composite rating, despite aggregating dozens of performance events into a single score, adds nothing beyond the raw stats. 
-
-**Why it matters:** Composite metrics are not automatically more powerful than their components. A rating is only useful when it captures signal that underlying features miss, which in this case, it does not.
+It clarifies what the model is learning. 
+It is not learning 'forwards are worth more' in the intuitive sense. It is learning *"given this player's current value and stats, what happens next?"*. 
+Position has already been reflected in the stats.
 
 ## Visualizations
 
@@ -122,20 +121,19 @@ The slight upward tilt of the cloud is consistent with the systematic under-pred
 
 *Standardised coefficients, sorted by absolute magnitude. Green bars indicate positive effects, red bars indicate negative effects.*
 
-The coefficient plot is the summary of what the model learned.
-`log1p_mid_mv` (+0.53) and `log1p_pre_mv` (+0.26) dominate. Together they carry more weight than all 41 performance statistics combined.
-The only performance feature with a coefficient above +0.10 is `AvgP` (average passes per game). 
-`age` and `age²` are both negative (roughly −0.14 and −0.15), reflecting the conditional age effect discussed in [Finding #2](#2-age-effect-is-subtler-than-it-appears). 
-`Performance_Crs` stands out as the negative coefficient (−0.032), explained in [Finding #3](#3-market-penalises-traditional-crossers). 
-`Performance_CrdR`, red card, is also an obvious leading negative coefficient.
+`log1p_mid_mv` *(+0.82)* dominates. Its bar alone is longer than all of them combined. 
+Prior market value carries more weight than the other 42 features combined.
+The second-largest positive coefficient is `Rating` *(+0.12)* from the WhoScored composite score. 
+`age_2` / age² *(−0.17)* is the largest negative coefficient, and its reason is discussed in [Finding #2](#2-age-effect-is-subtler-than-it-appears). 
+`Standard_Sh` *(−0.068)*, `Performance_Int` *(−0.032)*, `Performance_Crs` *(−0.021)*  follow behind, reflecting the "attempt volume" finding discussed in [Finding #3](#3-the-market-penalises-attempt-volume-over-completed-actions).
 
 ### Figure 4 - Distribution of Relative Prediction Error
 
 ![Error Distribution](reports/figures/04_error_distribution.png)
 *Absolute relative error (|actual − predicted| / actual) across the test set.*
 
-The error distribution is strongly right-skewed. The median relative error is **14.9%**, meaning half of all test predictions are within 15% of the actual value. 
-The mean is **19.9%**, pulled upward by a small number of extreme cases.
+The error distribution is strongly right-skewed. The median relative error is **11.7%**, meaning half of all test predictions are within 12% of the actual value. 
+The mean is **16.5%**, pulled upward by a small number of extreme cases.
 Since the tail is long and the mean is larger than the median, it indicates the model is useful for most players and unreliable for a few. 
 
 ## Data and Methodology
@@ -380,19 +378,21 @@ Ridge is sensitive to feature scale. Without standardisation, `Playing Time_Min`
 The only hyperparameter in Ridge is the regularisation strength `alpha`. 
 This was tuned on the validation set over the range `[0.01, 1000]`, with the following results:
 
-| Alpha | Validation RMSE (log1p) |
-|-------|------------------------|
-| 0.01 | 0.3035 |
-| 0.1 | 0.3035 |
-| 1.0 | 0.3030 |
-| 10.0 | 0.3011 |
-| **100.0** | **0.2999** |
-| 300.0 | 0.3044 |
-| 500.0 | 0.3183 |
-| 1000.0 | 0.3674 |
+| Alpha    | Validation RMSE (log1p) |
+|----------|-------------------------|
+| 0.01     | 0.29438                 |
+| 0.1      | 0.29432                 |
+| 1.0      | 0.29380                 |
+| **10.0** | **0.29201**             |
+| 100.0    | 0.29203                 |
+| 1000.0   | 0.31265                 |
 
-The validation error follows a clear U-shape with a minimum at `alpha = 100`. 
+The validation error follows a clear U-shape with a minimum at `alpha = 10`. 
 Smaller values under-regularise and produce higher error, larger values over-regularise and flatten the model toward the mean. 
+
+The regularisation strength was tuned over a pre-declared grid of `[0.01, 0.1, 1.0, 10.0, 100.0, 1000.0]`. 
+The optimum was 10, with validation RMSE 0.29201. 
+Expanding the grid to include 50 produced a marginal improvement *(0.29183)* that did not generalise to the test set, illustrating the risk of over-tuning on validation.
 
 ### Baselines
 
@@ -513,10 +513,10 @@ The script:
 2. A CSV file `reports/model_output/predictions.csv`, containing one row per player with actual vs. predicted comparisons
 
 #### Input validation
-| Layer | Behaviour |
-|-------|-----------|
-| **Required fields** | Skips the row with a clear message if any of `age`, `position`, `pre_season_mv`, or `mid_season_mv` are missing. |
-| **Hard limits** | Rejects inputs outside plausible ranges: age 15–45, value €50k–€300M, position must contain at least one of `DF`/`MF`/`FW`. |
+| Layer | Behaviour                                                                                                                             |
+|-------|---------------------------------------------------------------------------------------------------------------------------------------|
+| **Required fields** | Skips the row with a clear message if any of `age`, `position`, `pre_season_mv`, or `mid_season_mv` are missing.                      |
+| **Hard limits** | Rejects inputs outside plausible ranges: age 15–45, value €50K–€300M, position must contain at least one of `DF`/`MF`/`FW`.           |
 | **Soft warnings** | Flags inputs in the top/bottom 5% of the training distribution as extrapolations, but still runs the prediction and prints a warning. |
 
 
@@ -525,12 +525,12 @@ The script:
 There are a few limitations to the model. Some of them are intrinsic to the target (in that market value is a subjective quantity), while others are structural (with training data exhibiting narrow tails).
 ### Model Limitations
 
-| Limitation                   | Evidence                                                                                                                                                      | Impact                                                                                                                                                 |
-|------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Temporal drift**           | 14 of the 15 worst test predictions are under-predictions. The largest gaps includes Isak (€85M → €55M predicted), Tonali (€80M → €51M), Rice (€120M → €92M). | The model underpredicts the top of the market because 2025–26 values grew faster than the 2021–2025 trend. It also does not include reputation factor. |
-| **Sparse tails**             | Under 5% of training rows fall outside age 20–32 or the €2M–€70M value band.                                                                                  | Predictions for players outside these ranges are extrapolations.                                                                                       |
-| **Heteroscedastic errors**   | Residuals span ±€5M at €10M predictions and ±€20M at €70M predictions.                                                                                        | Euro-scale RMSE (€7.2M) is dominated by a small number of high-value errors and overstates typical inaccuracy.                                         |
-| **Unreliable for very young players** | 18–21-year-olds appear on both extremes: under-predicted (Kroupi, Heaven) and over-predicted (Garnacho, Tel).                                                 | The age coefficient dominates a small and noisy training signal for this group. Predictions for very young players have higher variance.               |
+| Limitation                   | Evidence                                                                                                                                              | Impact                                                                                                                                                 |
+|------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Temporal drift**           | All worst test predictions are underpredictions. The largest gaps include Kroupi (€70M → €34M predicted), Tonali (€80M → €53M), Cherki (€90M → €69M). | The model underpredicts the top of the market because 2025–26 values grew faster than the 2021–2025 trend. It also does not include reputation factor. |
+| **Sparse tails**             | Under 5% of training rows fall outside age 20–32 or the €2M–€70M value band.                                                                          | Predictions for players outside these ranges are extrapolations.                                                                                       |
+| **Heteroscedastic errors**   | Residuals span ±€5M at €10M predictions and ±€20M at €70M predictions.                                                                                | Euro-scale RMSE (€6.1M) is dominated by a small number of high-value errors and overstates typical inaccuracy.                                         |
+| **Unreliable for very young players** | 18–21-year-olds appear on both extremes: underpredicted (Kroupi, Heaven) and over-predicted (Garnacho, Tel).                                          | The age coefficient dominates a small and noisy training signal for this group. Predictions for very young players have higher variance.               |
 ### Target Limitations
 
 Transfermarkt values are **not algorithmic**. They emerge from community discussion informed by factors the platform documents but does not quantify. 
@@ -549,16 +549,15 @@ The model captures performance statistics and prior value. Any gap between predi
 
 ### Data Limitations
 
-| Limitation | Detail |
-|------------|--------|
-| **Single league** | English Premier League only. Results may not transfer to other leagues with different financial structures or playing styles. |
-| **Crosses not disaggregated** | `Performance_Crs` aggregates all crosses. The literature (Vecer, 2018) distinguishes airborne crosses from low crosses and cut-backs, which have different efficiency profiles. The model cannot make that distinction. |
-| **No contract or injury data** | Both are known drivers of market value and are absent from the feature set. |
+| Limitation | Detail                                                                                                                                                                                                                                                                                                            |
+|------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Single league** | English Premier League only. Results may not transfer to other leagues with different financial structures or playing styles.                                                                                                                                                                                     |
+| **Attempts not quality-adjusted** | `Standard_Sh`, `Performance_Crs`, and `LongB` count attempts without distinguishing quality. A high-xG shot and a speculative effort both count as one shot. Vecer (2018) shows that even within crosses, "good crosses" and "bad crosses" have opposite effects, indicating a distinction the model cannot make. |
+| **No contract or injury data** | Both are known drivers of market value and are absent from the feature set.                                                                                                                                                                                                                                       |
 
 ### Ridge-Specific Limitations
 
 **Ridge regression** was used as the primary model. Tree-based alternatives (Random Forest, XGBoost) were considered and rejected in [Model Selection](#model-selection)
-
 
 | Limitation | What it means for this project |
 |------------|-------------------------------|
@@ -574,56 +573,81 @@ The model captures performance statistics and prior value. Any gap between predi
 
 Any use of the model should be paired with domain judgment about the specific player's context.
 
-## Interpretation: Two Extreme Cases
-The two largest test-set errors illustrate how Transfermarkt's valuation process incorporates factors beyond observable statistics. 
-They are evidence that Transfermarkt explicitly considers reputation, narrative, and commercial value, while the model still achieves R² = 0.92 using only quantitative signal.
+## Interpretation: Three Extreme Cases
+The three largest test-set errors illustrate how Transfermarkt's valuation process incorporates factors beyond observable statistics. 
+They are evidence that Transfermarkt explicitly considers reputation, narrative, and commercial value, while the model still achieves R² = 0.942 using only quantitative signal.
 
-### Florian Wirtz
+### Alejandro Garnacho
+
+| Field | Value |
+|-------|-------|
+| Actual MV | €28,000,000 |
+| Predicted MV | €42,976,100 |
+| Error | +53.5% (over-prediction) |
+
+Garnacho's gap is the largest overprediction in the test set. 
+The model saw a 21-year-old winger with 8 goals and 4 assists and priced him as a rising asset. 
+Meanwhile, the market and the community saw the same numbers, plus a reputation the player had spent two years damaging.
+
+His attitude problems at Manchester United were extensively reported. 
+*Casemiro* and *Harry Maguire* attempted to mentor him, and their efforts "ultimately proved unsuccessful" [(All Football, 2025)](https://www.allfootballapp.com/fr/articles/4252385-man-utd-dressing-room-opinion-alejandro). 
+*Bruno Fernandes* publicly stated that Garnacho "did not have the best attitude" during pre-season [(Mirror, 2025)](https://www.mirror.co.uk/sport/football/news/garnacho-fernandes-man-utd-chelsea-35872716). 
+A bitter falling-out with manager *Amorim* followed after Garnacho criticised his Europa League final minutes [(Football London, 2025)](https://www.football.london/chelsea-fc/news/breaking-chelsea-garnacho-neto-forest-32702772). 
+At Chelsea, teammates berated him at half-time for "lack of intensity." 
+
+Transfermarkt's community explicitly weighs reputation and character as valuation conventions. The model has no feature for either.
+
+**Why the model missed it:** No feature for character, attitude, or public reputation. The age coefficient rewards youth aggressively, and there is no counterweight for a player whose market perception is negative.
+
+### Tottenham Hotspur Players
+
+| Player | Age | Actual MV | Predicted MV | Error      |
+|--------|-----|-----------|--------------|------------|
+| Mathys Tel | 20 | €22,000,000 | €34,219,719 | **+55.5%** |
+| Xavi Simons | 22 | €40,000,000 | €51,798,821 | **+29.5%** |
+| Pape Matar Sarr | 22 | €30,000,000 | €38,387,568 | **+28.0%** |
+| Micky van de Ven | 24 | €50,000,000 | €60,359,071 | **+20.7%** |
+
+4 of the 10 largest upward gaps in the entire test set belong to Tottenham players. This is not a coincidence.
+
+Tottenham finished **17th** in 2025–26 with 41 points, it was their **second** consecutive season one place above relegation. 
+They were eliminated from the FA Cup in the **third round** and from the League Cup in the **fourth round**. 
+By most metric, this was arguably Tottenham's lowest point in years. 
+For an established "Big Six" institution, results and performances on this level are simply unacceptable.
+
+The model treats each player independently. It has no feature for club performance, league position, or team context. 
+Transfermarkt's community prices in the drag of a collapsing club, as such, every Tottenham player is marked down because the team around them is failing.
+
+**Why the model missed it:** No feature for club performance, league position, or team context. The model sees individual stats and predicts based on those.
+
+### Dominik Szoboszlai
 
 | Field | Value |
 |-------|-------|
 | Actual MV | €100,000,000 |
-| Predicted MV | €120,155,713 |
-| Error | −20.2% (over-prediction) |
+| Predicted MV | €83,528,455 |
+| Error | −16.5% (under-prediction) |
 
-Wirtz earned the viral nickname **"Agent 007"** - 0 goals, 0 assists, 7 games - after his £116m move to Liverpool. 
-The meme spread rapidly across social media, with accounts competing to produce increasingly elaborate graphics around the theme, even [Transfermarkt played along](https://www.transfermarkt.com/florian-wirtz-ends-liverpool-goal-drought-as-arne-slot-faith-pays-off-in-wolves-win/view/news/472831).
-His value updates tracked the narrative: 
-```
-€140M (June 2025) → €130M (October) → €110M (December 2025) → €100M (June 2026)
-```
+The model underpredicted Szoboszlai by €16.5M, while the world saw Liverpool's Men's Player of the Season.
+The market re-rated him from €80M to €100M in a single season. Two mechanisms explain the gap:
 
-His transfer value dropped **€40M** in a year. Liverpool's 5th-place finish and the persistent "flop" narrative outweighed his underlying contributions even though he ranked top 10 in the Premier League for open-play chances created.
+- **Non-linear tier premium.** Szoboszlai's 25 goal contributions from midfield placed him among the top players in the league for his role. Ridge regression prices his output linearly: each additional goal or assist adds a fixed increment. But the market tends to apply a **step-function premium** for crossing into an elite statistical tier. A midfielder with 10 contributions is priced normally, while one with 25 gets re-rated disproportionately. The model cannot represent this because its structure is linear.
+- **Reputation multiplier.** Mohamed Salah publicly described Szoboszlai as "one of the best players in the world." Virgil van Dijk endorsed him as a future captain [(Independent, 2026)](https://www.independent.co.uk/sport/football/virgil-van-dijk-liverpool-dominik-szoboszlai-captaincy-premier-league-b3038051.html). Liverpool's Player of the Season award carried public signalling weight. These are institutional reputation markers that the market prices see but the model cannot.
 
-**Why the model missed it:** No feature for reputation, viral narrative, or public perception. Transfermarkt's community explicitly weighs reputation as a core valuation convention.
-
-### Erling Haaland 
-
-| Field | Value |
-|-------|-------|
-| Actual MV | €200,000,000 |
-| Predicted MV | €179,971,773 |
-| Error | +10.0% (under-prediction) |
-
-The model under-predicted Haaland because it saw a player whose value had just been cut from €200M to €180M in May 2025 after an "underwhelming" season by his standards. 
-It predicted a continuation of that decline. Instead, Haaland scored 27 Premier League goals in 2025–26, winning his **third Golden Boot** and finishing five goals clear of the nearest challenger. 
-Transfermarkt restored his value to **€200M** in the June 2026 update.
-
-**Why the model missed it**:  Reputation as the league's definitive finisher cannot be quantified. He became the fastest player to 100 Premier League goals (111 matches) ([Premier League, 2025](https://www.premierleague.com/en/news/4455995/erling-haaland-scores-100th-premier-league-goal-in-record-number-of-matches)) and now sits one Golden Boot behind Henry and Salah. 
-The model, trained on a sample where few players sustain this level, treated his prior decline as a trend.
+**Why the model missed it:** Ridge's linear structure cannot capture a step-function premium for entering an elite tier. The model also has no feature for institutional reputation, leadership endorsement, or award recognition.
 
 ### Common Thread
 
-| | Wirtz | Haaland                                            |
-|---|-------|----------------------------------------------------|
-| **Direction** | Over-prediction | Under-prediction                                   |
-| **Driver** | Negative narrative (007 "flop" label) | Positive reputation (3 consecutive PL Golden Boot) |
-| **TM response** | €140M → €100M (−29%) | €180M → €200M (+11%)                               |
-| **What the model misses** | Reputation collapse, league adaptation | Reputation reinforcement, career context           |
+| | Garnacho | Tottenham | Szoboszlai                                     |
+|---|----------|-----------|------------------------------------------------|
+| **Direction** | Over-prediction | Over-prediction | Under-prediction                               |
+| **Driver** | Negative personal reputation | Negative club context | Elite tier entry + institutional reputation    |
+| **TM Response** | Marked down | Squad-wide markdown | Re-rated to the €100M club                     |
+| **What the model misses** | Character and attitude | Team performance | Non-linear tier premium, leadership reputation |
 
-Transfermarkt explicitly considers reputation, prestige, and career narrative. They are factors no statistical model trained on performance data can capture. 
-The model's R² of 0.92 demonstrates that the **observable component** of market value, namely performance statistics and prior value momentum, carries the majority of the signal. 
-The residual 8% is where reputation and narrative live, and these two cases show precisely what that residual looks like when it manifests as extreme errors.
+Transfermarkt explicitly considers reputation, prestige, and club context - factors no statistical model trained on performance data can capture. 
+The model's R² of 0.942 demonstrates that the **observable component** of market value carries the majority of the signal. 
+The residual 6% is where these unobservables live, and these three cases show precisely what that residual looks like when it manifests as extreme errors.
 
 ## Future Work
 
@@ -631,14 +655,18 @@ Several improvements would likely reduce the model's remaining error. They are l
 
 ### Temporal Weighting
 
-The largest error source is temporal drift: the model systematically underpredicts the 2025–26 season because it learned market dynamics from 2021–2025, when values were lower. 
+The largest error source is temporal drift: all 15 of the worst test errors are under-predictions, concentrated in the 2025–26 season.
 A simple fix is sample weighting by season, giving recent seasons more influence during training. This can address the drift without changing the feature set.
 
-### Cross-League Adaptability
+### Team and Club Context
 
-Wirtz's over-prediction exposed a blind spot: the model cannot distinguish "proven in the Premier League" from "proven elsewhere." A player arriving from the Bundesliga carries **adaptation risk** that performance statistics alone do not encode.
+The model treats each player independently. 
+It has no feature for team strength, league position, or club situation. 
+Tottenham case proves this as four of the 15 largest upward gaps belong to Spurs players, and Tottenham finished 17th with 41 points and exited both domestic cups early. 
+The current model exhibits a misalignment with market dynamics and overlooks macroscopic team performance.
 
-A future iteration could add a `first_season_in_pl` flag or a `previous_league` category. The model would then learn separately how players from different leagues typically transition, though further tests are needed.
+Adding a `team_league_position` feature, or a `big_six_club` flag, would give the model context that Transfermarkt's community clearly uses. 
+A simple version would use the **previous season's final position** to avoid leakage. A more complete version would include current-season position at the time of each market value update, though this requires matching update dates to standings.
 
 ### Mid-Season Updates
 
@@ -648,17 +676,10 @@ It would increase the accuracy and the scope of the model.
 
 This would make the model more practically useful, since most real-world queries happen mid-season. Though, there is currently no free online data on mid-season stats.
 
-### Team and Club Context
-
-The model treats each player independently. It has no feature for team strength, league position, or club financial situation. 
-Liverpool's 5th-place finish and EFL Cup exit in the fourth round against Crystal Palace in 2025–26 contributed to Wirtz's value drop. The model could not see this.
-
-Adding a `team_league_position`, `efl_cup_position` feature, or a `top_six_club` flag, would give the model context that Transfermarkt's community clearly uses. A simple version would use the previous season's final position to avoid leakage.
-
 ### Alternative Models
 
 Ridge regression was chosen for interpretability and because temporal drift dominates the error. If temporal drift is addressed first, a gradient-boosted model (XGBoost or LightGBM) might then capture interactions that Ridge misses, e.g. age effect differs by position
-The comparison would be worth running only after the simpler fixes above.
+The comparison would be worth running only after the simpler fixes above. Given the current results, the expected gain from model-swapping alone is modest.
 
 ### Additional Prior Seasons
 
@@ -675,34 +696,52 @@ Two improvements are often proposed but unlikely to matter much here:
 
 ## Conclusion
 
-This project built a regression model to predict end-of-season Transfermarkt market values for Premier League outfield players from their performance statistics and prior value momentum. 
-Trained on 2,044 player-seasons across five seasons (2021-2026), the Ridge model achieved **R² = 0.920** on the held-out 2025–26 test set, with a median relative error of 14.9% and a 9.6% RMSE improvement over the strongest naive baseline.
+The question this project set out to answer was how much of a player's market value can be explained by what is observable. 
+A Ridge model using only prior value and performance statistics reached R² = 0.942 on a held-out season, and the improvement over simply copying the December value was 22.8% on RMSE. 
+Transfermarkt's community process, which the platform insists is not algorithmic. 
+It also produces values that are overwhelmingly reproducible from public data. 
+Market value is not vibes.
 
-The dominant finding is that **market value is highly autocorrelated**: prior value features carry more weight than all 41 performance statistics combined. 
-Performance statistics add roughly 10% incremental signal beyond momentum. It is meaningful, but far smaller than the raw R² suggests. 
-The model also independently recovered an effect documented in the football analytics literature: crosses carry a negative coefficient, consistent with Vecer's (2018) finding that open crossing reduces scoring efficiency.
+The decomposition sharpens this. Momentum alone gets to roughly 90% of the signal. 
+Everything a player does on the pitch across an entire season adds about 4% of explained variance. 
+The headline is that the market is sticky. 
+Where a player's value sits in December is a stronger forecast of where it lands in June than anything the player does between those two dates.
 
-The model's errors are systematic. 
-It underpredicts the top of the market due to temporal drift across seasons, while overpredicts some young players due to sparse tail coverage.
-It misses cases where reputation or narrative drove the market (Wirtz, Haaland). 
-These limitations reflect the boundary between what statistics can capture and what Transfermarkt's community-driven process actually weighs.
+Performance still matters at the margin, in a specific direction. 
+The market rewards completed actions and penalises attempts. 
+Passes, key passes, and tackles won push value up. 
+Shots, crosses, long balls, and interceptions push it down once the current value is held constant. 
+It matches what football analytics has argued for a decade about efficiency and shot quality. 
+A model built without seeing the literature recovered the same pattern, which is the strongest form of evidence that the finding is real.
 
-The full pipeline, from scraping to prediction, is reproducible and public.
+What the model cannot see is where the residual variance lives. 
+Three cases show what sits in that space. 
+Garnacho's attitude problems are an individual-level qualitative factor attached to one player. 
+Tottenham's 17th-place finish is a team-level systemic factor that affected an entire squad. 
+Szoboszlai's jump into an elite statistical tier is a model-structure problem, since Ridge prices contributions linearly and the market does not. 
+One is about a person, one is about a club, one is about the shape of the regression itself.
+
+The practical implication is that quantitative models like this one are useful for the majority of players and unreliable at the edges. 
+For a mid-table starter with a stable trajectory, the model will land within a few million euros. 
+For a teenager with limited minutes, a player at a collapsing club, or a star on the verge of a reputation shift, the model will be wrong, and it will be wrong in a predictable direction. 
+Knowing which side of that line a player sits on is more valuable than the prediction itself.
 
 ## References
+
+All Football. (2025). *Man Utd dressing room opinion of Alejandro Garnacho was revealed by ex-team-mate*. https://www.allfootballapp.com/fr/articles/4252385-man-utd-dressing-room-opinion-alejandro
 
 Cariboo, D. (2024). *Football Data from Transfermarkt* [Data set]. Kaggle.
 https://www.kaggle.com/datasets/davidcariboo/player-scores
 
-Premier League. (2025, December 2). *Haaland joins the Premier League's 100 Club in record time*. https://www.premierleague.com/en/news/4455995/erling-haaland-scores-100th-premier-league-goal-in-record-number-of-matches
+Jolly, R. (2026, February 18). *Van Dijk backs Szoboszlai to make 'next step' and inherit Liverpool captaincy*. The Independent. https://www.independent.co.uk/sport/football/virgil-van-dijk-liverpool-dominik-szoboszlai-captaincy-premier-league-b3038051.html
 
-Transfermarkt (2025). *Florian Wirtz ends Liverpool goal drought as Arne Slot faith pays off in Wolves win*. https://www.transfermarkt.com/florian-wirtz-ends-liverpool-goal-drought-as-arne-slot-faith-pays-off-in-wolves-win/view/news/472831
+Marsh, D. (2025, September 9). *Alejandro Garnacho shows true colours with message to ex-Man Utd team-mate Bruno Fernandes*. The Mirror. https://www.mirror.co.uk/sport/football/news/garnacho-fernandes-man-utd-chelsea-35872716
 
 Transfermarkt (2025). *Market value definition*. https://www.transfermarkt.com/navigation/mwdefinition
 
-Vecer, J. (2018). Crossing in Soccer has a Strong Negative Impact on Scoring:
-Evidence from the English Premier League. SSRN Electronic Journal.
-https://ssrn.com/abstract=2225728
+Vecer, J. (2018). *Crossing in Soccer has a Strong Negative Impact on Scoring: Evidence from the English Premier League*. SSRN Electronic Journal. https://ssrn.com/abstract=2225728
+
+Vincent, B. (2025, October 18). *Alejandro Garnacho hooked at half-time after furious Chelsea star screamed at him*. football.london. https://www.football.london/chelsea-fc/news/breaking-chelsea-garnacho-neto-forest-32702772
 
 ## Disclaimer
 

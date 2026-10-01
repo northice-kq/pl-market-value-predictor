@@ -1,4 +1,4 @@
 player_label,player,age,position,pre_season_mv,mid_season_mv,prev_mid_season_mv,computed_accel,predicted_mv,predicted_change_eur,predicted_change_pct
-EXAMPLE 1,Florian Wirtz,22.0,MF,140000000.0,110000000.0,140000000.0,-0.2412,117920042,7920042,7.2
-EXAMPLE 2,Granit Xhaka,32.0,MF,12000000.0,10000000.0,,0.0,8586060,-1413940,-14.14
-player_1,You,18.0,FW,4000000.0,5500000.0,,0.0,11967474,6467474,117.59
+EXAMPLE 1,Florian Wirtz,22.0,MF,140000000.0,110000000.0,140000000.0,-0.2412,106908479,-3091521,-2.81
+EXAMPLE 2,Granit Xhaka,32.0,MF,12000000.0,10000000.0,,0.0,7699406,-2300594,-23.01
+player_1,You,18.0,FW,4000000.0,5500000.0,,0.0,11366273,5866273,106.66

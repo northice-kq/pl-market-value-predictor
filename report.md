@@ -585,15 +585,15 @@ They are evidence that Transfermarkt explicitly considers reputation, narrative,
 | Predicted MV | €42,976,100 |
 | Error | +53.5% (over-prediction) |
 
-Garnacho's gap is the largest overprediction in the test set. 
+Garnacho's gap is the largest overprediction in the test set in terms of **absolute value**. 
 The model saw a 21-year-old winger with 8 goals and 4 assists and priced him as a rising asset. 
 Meanwhile, the market and the community saw the same numbers, plus a reputation the player had spent two years damaging.
 
 His attitude problems at Manchester United were extensively reported. 
 *Casemiro* and *Harry Maguire* attempted to mentor him, and their efforts "ultimately proved unsuccessful" [(All Football, 2025)](https://www.allfootballapp.com/fr/articles/4252385-man-utd-dressing-room-opinion-alejandro). 
 *Bruno Fernandes* publicly stated that Garnacho "did not have the best attitude" during pre-season [(Mirror, 2025)](https://www.mirror.co.uk/sport/football/news/garnacho-fernandes-man-utd-chelsea-35872716). 
-A bitter falling-out with manager *Amorim* followed after Garnacho criticised his Europa League final minutes [(Football London, 2025)](https://www.football.london/chelsea-fc/news/breaking-chelsea-garnacho-neto-forest-32702772). 
-At Chelsea, teammates berated him at half-time for "lack of intensity." 
+A bitter falling-out with manager *Amorim* followed after Garnacho criticised his Europa League final minutes. 
+At Chelsea, teammates berated him at half-time for "lack of intensity" [(Football London, 2025)](https://www.football.london/chelsea-fc/news/breaking-chelsea-garnacho-neto-forest-32702772).
 
 Transfermarkt's community explicitly weighs reputation and character as valuation conventions. The model has no feature for either.
 
@@ -638,12 +638,12 @@ The market re-rated him from €80M to €100M in a single season. Two mechanism
 
 ### Common Thread
 
-| | Garnacho | Tottenham | Szoboszlai                                     |
-|---|----------|-----------|------------------------------------------------|
-| **Direction** | Over-prediction | Over-prediction | Under-prediction                               |
+| | Garnacho | Tottenham Players     | Szoboszlai                                     |
+|---|----------|-----------------------|------------------------------------------------|
+| **Direction** | Over-prediction | Over-prediction       | Under-prediction                               |
 | **Driver** | Negative personal reputation | Negative club context | Elite tier entry + institutional reputation    |
-| **TM Response** | Marked down | Squad-wide markdown | Re-rated to the €100M club                     |
-| **What the model misses** | Character and attitude | Team performance | Non-linear tier premium, leadership reputation |
+| **TM Response** | Marked down | Squad-wide markdown   | Re-rated to the €100M club                     |
+| **What the model misses** | Character and attitude | Team performance      | Non-linear tier premium, leadership reputation |
 
 Transfermarkt explicitly considers reputation, prestige, and club context - factors no statistical model trained on performance data can capture. 
 The model's R² of 0.942 demonstrates that the **observable component** of market value carries the majority of the signal. 

@@ -22,7 +22,7 @@ Predicting end-of-season Transfermarkt market values for Premier League outfield
 Transfermarkt market values are community-driven estimates rather than fixed formulas. While the platform outlines key factors like reputation, marketing appeal, injury history, and situational context, it does not publicly quantify or weight them *(more on [Transfermarkt](https://www.transfermarkt.com/navigation/mwdefinition))*. 
 This project asks how much of that variation can be explained by **observable data alone**, namely, in-season performance statistics and prior value momentum.
 
-Trained on 2,044 player-seasons across five seasons, a Ridge regression model achieves **R² = 0.942** on the held-out 2025–26 season, with a 22.8% RMSE improvement over the strongest naive baseline. 
+Trained on 2,044 player-seasons across five seasons, a Ridge regression model achieves **R² = 0.942** on the held-out 2025–26 season, with a **22.8%** RMSE improvement over the strongest naive baseline. 
 The results also expose structural biases: the model underpredicts the top of the market and is less reliable for very young players, which align with the reputation and narrative factors it cannot see.
 
 ## Key Findings
@@ -35,7 +35,7 @@ Market value is highly autocorrelated. The best predictor of a player's June val
 
 ### 2. Age effect is subtler than it appears
 
-Both `age` (−0.071) and `age²` (−0.172) are negative, which seems to contradict the inverted-U relationship that peaks at 22–27. 
+Both `age` *(−0.071)* and `age²` *(−0.172)* are negative, which seems to contradict the inverted-U relationship that peaks at 22–27. 
 Since current value already encodes the market's age premium, the age terms capture only the **residual** effect. 
 The quadratic now dominates. The relationship is sharper than a simple inverted-U, i.e.,
 given two players of equal current value, the older one depreciates more.

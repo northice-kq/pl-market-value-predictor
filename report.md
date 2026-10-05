@@ -653,10 +653,14 @@ The residual 6% is where these unobservables live, and these three cases show pr
 
 Several improvements would likely reduce the model's remaining error. They are listed in order of expected impact.
 
-### Temporal Weighting
+### ~~Temporal Weighting~~
 
-The largest error source is temporal drift: all 15 of the worst test errors are under-predictions, concentrated in the 2025–26 season.
-A simple fix is sample weighting by season, giving recent seasons more influence during training. This can address the drift without changing the feature set.
+~~The largest error source is temporal drift: all 15 of the worst test errors are under-predictions, concentrated in the 2025–26 season.
+A simple fix is sample weighting by season, giving recent seasons more influence during training. This can address the drift without changing the feature set.~~
+
+**UPDATE**: Sample weighting by season was tested with weights of `1.0` / `1.25` / `1.5` across the three training seasons. 
+Validation RMSE improved marginally (*0.2920* → *0.2907*), but test RMSE worsened (*0.2401* → *0.2719*). 
+The experiment suggests temporal drift in the 2025–26 market is not a weighting issue.
 
 ### Team and Club Context
 

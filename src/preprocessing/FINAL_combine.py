@@ -5,7 +5,7 @@ script_dir = os.path.dirname(os.path.abspath(__file__))
 project_root = os.path.dirname(os.path.dirname(script_dir))
 INPUT_FOLDER = os.path.join(project_root, 'data', 'merged_data')
 OUTPUT_FOLDER = os.path.join(project_root, 'data', 'final')
-OUTPUT_FILE = os.path.join(OUTPUT_FOLDER, 'final_data_v1.csv')
+OUTPUT_FILE = os.path.join(OUTPUT_FOLDER, 'final_data_v1.1.csv')
 
 SEASONS = ['2021-2022', '2022-2023', '2023-2024', '2024-2025', '2025-2026']
 MV_COLS = ['pre_season_mv', 'mid_season_mv', 'target_mv', 'mid_season_acceleration', 'end_season_acceleration', 'mid_season_log1p_acceleration', 'end_season_log1p_acceleration']

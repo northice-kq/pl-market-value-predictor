@@ -6,7 +6,7 @@ import os
 
 script_dir = os.path.dirname(os.path.abspath(__file__))
 project_root = os.path.dirname(os.path.dirname(script_dir))
-INPUT_FILE = os.path.join(project_root, 'data', 'final', 'final_data_v1.csv')
+INPUT_FILE = os.path.join(project_root, 'data', 'final', 'final_data_v1.1.csv')
 OUTPUT_FOLDER = os.path.join(project_root, 'data', 'ml')
 os.makedirs(OUTPUT_FOLDER, exist_ok=True)
 
